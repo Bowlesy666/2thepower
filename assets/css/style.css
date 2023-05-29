@@ -101,6 +101,11 @@ main {
     background-color: rgba(0, 0, 0, 0);
 }
 
+.sub-heading {
+    font-size: 24px;
+    color: yellow;
+}
+
 button {
     color: white;
     padding: 10px;
