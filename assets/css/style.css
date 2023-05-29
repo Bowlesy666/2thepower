@@ -81,7 +81,7 @@ main {
 .big-number {
     font-size: 180px;
     width: 190px;
-    height: 160px;
+    height: 190px;
     text-align: right;
     padding-bottom: 15px;
 }
@@ -91,7 +91,7 @@ main {
     width: 80px;
     height: 80px;
     position: relative;
-    top: -80px;
+    top: -90px;
     left: -5px;
     text-align: left;
 }
