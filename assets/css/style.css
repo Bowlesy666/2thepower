@@ -32,6 +32,13 @@ h1 {
     line-height: 140px;
 }
 
+#title-logo {
+    height: 200px;
+    width: 200px;
+    border: 10px solid yellow;
+    border-radius: 25px;
+}
+
 /* Add flex box to main element and max width */
 
 main {
@@ -49,18 +56,21 @@ main {
     margin: 20px auto;
 }
 
-#title-logo {
-    height: 200px;
-    width: 200px;
-    border: 10px solid yellow;
-    border-radius: 25px;
-}
-
-/* both panels will be same size as will be sideby side on larger screen sizes */
+/* both panels will be same size as will be side by side on larger screen sizes */
 #question-panel, #answer-panel {
     width: 310px;
-    height: 400px;
-    margin: 30px 0;
+    height: 520px;
+    margin: 30px auto;
+    border: 1px solid red;
+}
+
+/* answer log panel styles */
+#answer-log-panel {
+    width: 95%;
+    min-height: 100px;
+    height: fit-content;
+    border: 1px solid red;
+    margin: 20px auto;
 }
 
 /* below will be mainly global settings used in each of the panels */
@@ -88,6 +98,7 @@ main {
 
 .big-number, .little-number {
     color: yellow;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 button {
