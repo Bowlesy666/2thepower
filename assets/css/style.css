@@ -127,6 +127,10 @@ input {
     font-size: 24px;
 }
 
+/* below is the workings out panel styles */
+
+
+
 @media screen and (max-width: 630px) {
     #question-panel { order: 1; }
     #answer-panel { order: 3; }
