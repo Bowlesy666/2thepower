@@ -22,7 +22,19 @@
     <!-- Main section will hold the 4 panels taht users will interact with -->
         <main>
     <!-- this panel asks for input to create each scenario -->
-            <section id="question-panel">question-panel</section>
+            <section id="question-panel">
+                <h2>Choose your Question</h2>
+                <div id="input-to-locked-in">
+                    <form>
+                        <label>big number to be multiplied</label>
+                        <input type="number" min="2" max="15" class="big-number">
+                        <label>little number is how many times it is multiplied by itself</label>
+                        <input type="number" min="2" max="15" class="little-number">
+                        <span id="error-message"></span>
+                    </form>
+                </div>
+                <button id="question-tile-calculate-btn">Complete this sum</button>
+                <button id="question-tile-random-btn">Random</button></section>
     <!-- this answer panel allows users to skip the working out stage if they wish and answer straight away -->
             <section id="answer-panel">answer-panel</section>
     <!-- this panel will guide the user through each stage of the acalculation -->
