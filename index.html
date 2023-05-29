@@ -51,9 +51,12 @@
             <section id="workings-out-panel">
                 <h4 class="padding-top-bottom sub-heading text-shadow">Lets work it out together!</h4>
                 <div id="workings-out-initial-panel">
-                    <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
-                    <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
-                    <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+                    <!-- div is used to keep inline blocks from allowing further elements on this line -->
+                    <div>
+                        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+                        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+                        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+                    </div>
                     <input class="workings-out-input" type="number">
                     <span id="error-message"></span>
                     <p class="hint-p">Rememeber, these numbers enter right to left to help with your sum</p>

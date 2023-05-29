@@ -129,7 +129,11 @@ input {
 
 /* below is the workings out panel styles */
 
-
+.workings-out-medium-size, .workings-out-multiply-sign {
+    display: inline-block;
+    font-size: 60px;
+    margin: 0 12px;
+}
 
 @media screen and (max-width: 630px) {
     #question-panel { order: 1; }
