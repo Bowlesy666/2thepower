@@ -1,5 +1,7 @@
+/* import the google fonts used in the website */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@1,900&family=Roboto+Slab:wght@600&display=swap');
 
+/* the star means applies to all unless overwritten */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,16 +10,22 @@
   scroll-behavior: smooth;
   font-family: 'Roboto Slab', serif;
   text-align: center;
+  color: white;
 }
 
+/* below is all used in the header/ title */
 h1 {
     font-family: 'Roboto Serif', serif;
     font-size: 160px;
     color: yellow;
+}
+
+.text-shadow {
     /* Google search gave me the idea for text shawdow below */
     text-shadow: 0.0px 10.0px 0.02px #000, 9.8px 2.1px 0.02px #000, 4.2px -9.1px 0.02px #000, -8.0px -6.0px 0.02px #000, -7.6px 6.5px 0.02px #000, 4.8px 8.8px 0.02px #000, 9.6px -2.8px 0.02px #000, -0.7px -10.0px 0.02px #000, -9.9px -1.5px 0.02px #000, -3.5px 9.4px 0.02px #000, 8.4px 5.4px 0.02px #000, 7.1px -7.0px 0.02px #000, -5.4px -8.4px 0.02px #000, -9.4px 3.5px 0.02px #000, 1.4px 9.9px 0.02px #000, 10.0px 0.8px 0.02px #000, 2.9px -9.6px 0.02px #000, -8.7px -4.8px 0.02px #000, -6.6px 7.5px 0.02px #000, 5.9px 8.0px 0.02px #000, 9.1px -4.1px 0.02px #000, -2.1px -9.8px 0.02px #000, -10.0px -0.1px 0.02px #000, -2.2px 9.8px 0.02px #000, 9.1px 4.2px 0.02px #000, 6.1px -8.0px 0.02px #000, -6.5px -7.6px 0.02px #000, -8.8px 4.7px 0.02px #000, 2.7px 9.6px 0.02px #000, 10.0px -0.6px 0.02px #000, 1.5px -9.9px 0.02px #000, -9.3px -3.6px 0.02px #000, -5.5px 8.4px 0.02px #000, 7.0px 7.2px 0.02px #000, 8.5px -5.3px 0.02px #000, -3.4px -9.4px 0.02px #000, -9.9px 1.3px 0.02px #000, -0.8px 10.0px 0.02px #000, 9.6px 2.9px 0.02px #000, 4.9px -8.7px 0.02px #000, -7.5px -6.7px 0.02px #000, -8.1px 5.9px 0.02px #000, 4.0px 9.2px 0.02px #000, 9.8px -2.0px 0.02px #000, 0.2px -10.0px 0.02px #000, -9.7px -2.3px 0.02px #000, -4.3px 9.0px 0.02px #000, 7.9px 6.1px 0.02px #000
 }
 
+/* applied to show as an indices ie smaller and at the top of the text before it */
 #title-small-text {
     font-size: 22px;
     vertical-align: top;
@@ -29,4 +37,49 @@ h1 {
     width: 200px;
     border: 10px solid yellow;
     border-radius: 25px;
+}
+
+/* both panels will be same size as will be sideby side on larger screen sizes */
+#question-panel, #answer-panel {
+    width: 310px;
+    height: 400px;
+    margin: 30px 0;
+}
+
+/* below will be mainly global settings used in each of the panels */
+.padding-top-bottom {
+    padding: 25px 0 25px;
+}
+
+.big-number {
+    font-size: 180px;
+    width: 190px;
+    height: 160px;
+    text-align: right;
+    padding-bottom: 15px;
+}
+
+.little-number {
+    font-size: 70px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: -80px;
+    left: -5px;
+    text-align: left;
+}
+
+.big-number, .little-number {
+    color: yellow;
+}
+
+button {
+    color: white;
+    padding: 10px;
+    margin: 0px 5px;
+    border-radius: 20px;
+}
+
+input {
+    border-radius: 15px;
 }
