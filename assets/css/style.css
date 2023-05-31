@@ -62,7 +62,6 @@ main {
     width: 310px;
     height: 520px;
     margin: 30px auto;
-    border: 1px solid red;
 }
 
 /* answer log panel styles */
@@ -70,7 +69,6 @@ main {
     width: 95%;
     min-height: 100px;
     height: fit-content;
-    border: 1px solid red;
     margin: 20px auto;
     padding-bottom: 40px;
 }
@@ -133,7 +131,6 @@ input {
 #workings-out-panel {
     width: 95%;
     height: 550px;
-    border: 1px solid red;
     margin: 20px auto;
 }
 
@@ -190,7 +187,6 @@ input {
 #workings-out-initial-panel, .workings-out-iteration-panel {
     width: 250px;
     min-width: 250px;
-    border: 1px solid red;
 }
 
 #hint-p {
@@ -204,13 +200,11 @@ input {
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-around;
-    border: 1px solid red;
 }
 
 .answer-log-scenario, .answer-log-scenario-answer, .answer-log-outcome {
     width: 220px;
     height: 200px;
-    border: 1px solid red;
 }
 
 /* Footer section padding on the bottom for aesthetics */
