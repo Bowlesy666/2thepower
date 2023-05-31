@@ -49,13 +49,6 @@ main {
     margin: auto;
 }
 
-#workings-out-panel {
-    width: 95%;
-    height: 400px;
-    border: 1px solid red;
-    margin: 20px auto;
-}
-
 /* both panels will be same size as will be side by side on larger screen sizes */
 #question-panel, #answer-panel {
     width: 310px;
@@ -71,6 +64,7 @@ main {
     height: fit-content;
     border: 1px solid red;
     margin: 20px auto;
+    padding-bottom: 40px;
 }
 
 /* below will be mainly global settings used in each of the panels */
@@ -128,6 +122,12 @@ input {
 }
 
 /* below is the workings out panel styles */
+#workings-out-panel {
+    width: 95%;
+    height: 400px;
+    border: 1px solid red;
+    margin: 20px auto;
+}
 
 .workings-out-medium-size, .workings-out-multiply-sign {
     display: inline-block;
