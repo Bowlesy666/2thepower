@@ -188,6 +188,22 @@ input {
     margin: 15px;
 }
 
+/* below is for the answer log section */
+.answer-log-iteration-container {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    border: 1px solid red;
+}
+
+.answer-log-scenario, .answer-log-scenario-answer, .answer-log-outcome {
+    width: 220px;
+    height: 200px;
+    border: 1px solid red;
+}
+
 @media screen and (max-width: 630px) {
     #question-panel { order: 1; }
     #answer-panel { order: 3; }
