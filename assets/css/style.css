@@ -124,7 +124,7 @@ input {
 /* below is the workings out panel styles */
 #workings-out-panel {
     width: 95%;
-    height: 500px;
+    height: 550px;
     border: 1px solid red;
     margin: 20px auto;
 }
@@ -133,6 +133,13 @@ input {
     display: inline-block;
     font-size: 60px;
     margin: 0 12px;
+}
+
+.workings-out-medium-size, .workings-out-multiply-sign {
+    display: inline-block;
+    font-size: 60px;
+    margin: 0 12px;
+    color: yellow;
 }
 
 .workings-out-multiply-sign {
@@ -149,10 +156,36 @@ input {
     color: yellow;
 }
 
+/* answers go in right to left as this is how sums are calculated */
+.workings-out-input {
+    width: 240px;
+    height: 35px;
+    text-align: right;
+    padding: 10px;
+    font-size: 20px;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    margin: 40px 0 40px;
+}
+
+.workings-out-submit {
+    margin-bottom: 30px;
+}
+
 #workings-out-scrolling-container {
     display: flex;
     flex-direction: row;
     overflow-y: scroll;
+}
+
+#workings-out-initial-panel, .workings-out-iteration-panel {
+    width: 250px;
+    min-width: 250px;
+    border: 1px solid red;
+}
+
+#hint-p {
+    margin: 15px;
 }
 
 @media screen and (max-width: 630px) {
