@@ -221,6 +221,7 @@ input {
     #answer-log-panel { order: 4; }
 }
 
+/* Adds flex to header section above 630px size screens */
 @media screen and (min-width: 630px) {
     #header-flex-container {
         display: flex;
@@ -234,4 +235,18 @@ input {
     }
     #title-logo { order: 1;}
     h1 { order: 2; }
+}
+
+/* below media query gives main more width to reduce space at the sides on larger screens */
+@media screen and (min-width: 920px) {
+    main {
+        max-width: 2300px;
+        margin: 0 2%;
+    }
+    #question-panel {
+        margin: 30px 90px 30px auto;
+    }
+    #answer-panel {
+        margin: 30px auto 30px 90px;
+    }
 }
