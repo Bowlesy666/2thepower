@@ -39,6 +39,14 @@ h1 {
     border-radius: 25px;
 }
 
+#header-description {
+    margin: 0 5px;
+}
+
+#header-flex-container {
+    margin: 30px 0;
+}
+
 /* Add flex box to main element and max width */
 
 main {
@@ -205,9 +213,25 @@ input {
     border: 1px solid red;
 }
 
+/* Below is the media queries to add responsive designs for different screen sizes */
 @media screen and (max-width: 630px) {
     #question-panel { order: 1; }
     #answer-panel { order: 3; }
     #workings-out-panel { order: 2; }
     #answer-log-panel { order: 4; }
+}
+
+@media screen and (min-width: 630px) {
+    #header-flex-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    h1, #title-logo {
+        display: inline-block;
+        margin: 0 20px;
+    }
+    #title-logo { order: 1;}
+    h1 { order: 2; }
 }
