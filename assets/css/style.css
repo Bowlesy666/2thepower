@@ -124,7 +124,7 @@ input {
 /* below is the workings out panel styles */
 #workings-out-panel {
     width: 95%;
-    height: 400px;
+    height: 500px;
     border: 1px solid red;
     margin: 20px auto;
 }
@@ -133,6 +133,26 @@ input {
     display: inline-block;
     font-size: 60px;
     margin: 0 12px;
+}
+
+.workings-out-multiply-sign {
+    margin: 0 47px;
+}
+
+.workings-out-previous-iteration-answer {
+    display: flex;
+    flex: end;
+    font-size: 20px;
+    direction: rtl;
+    width: 100%;
+    padding: 15px 15px 0 0;
+    color: yellow;
+}
+
+#workings-out-scrolling-container {
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
 }
 
 @media screen and (max-width: 630px) {
