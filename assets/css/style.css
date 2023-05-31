@@ -213,6 +213,11 @@ input {
     border: 1px solid red;
 }
 
+/* Footer section padding on the bottom for aesthetics */
+footer {
+    margin-bottom: 40px;
+}
+
 /* Below is the media queries to add responsive designs for different screen sizes */
 @media screen and (max-width: 630px) {
     #question-panel { order: 1; }
