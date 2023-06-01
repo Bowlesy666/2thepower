@@ -260,6 +260,24 @@ footer {
     h1 { order: 2; }
 }
 
+/* below is the syles for 404 page */
+#oops-page-main {
+    /* max-width: 600px; */
+    margin: 0 auto;
+    padding: 0 10px;
+    flex-direction: column;
+}
+
+#oops-page-main h3, #oops-page-main p {
+    margin: 0 auto;
+}
+
+#oops-page-main p {
+    color: yellow;
+    font-size: 20px;
+}
+
+
 /* below media query gives main more width to reduce space at the sides on larger screens */
 @media screen and (min-width: 920px) {
     main {
