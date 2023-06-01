@@ -47,6 +47,9 @@ function questionChosen() {
 
     // Adds the new button to be able to refresh the sum/panel if user no longer wants to complete the current sum
     lockedIn.appendChild(newBtn);
+
+    fillAnswerPanel();
+    fillWorkingsOutPanel();
 }
 
 document.addEventListener("DOMContentLoaded", welcomeTimer);
