@@ -117,19 +117,29 @@
             </section>
     <!-- this panel logs each scenario completed and gives if answered correctly or incorrectly -->
             <section id="answer-log-panel">
-                <section id="answer-log-panel">
-                    <h5 class="padding-top-bottom sub-heading text-shadow">Answer Log</h5>
-                    <div class="answer-log-iteration-container">
-                        <div class="answer-log-scenario">
-                            <p><span class="big-number">?</span><span class="little-number">?</span></p>
-                        </div>
-                        <div class="answer-log-scenario-answer">
-                            <p>98563521</p>
-                        </div>
-                        <div class="answer-log-outcome">
-                            image tick/cross
-                        </div>
+                <h5 class="padding-top-bottom sub-heading text-shadow">Answer Log</h5>
+                <div class="answer-log-iteration-container">
+                    <div class="answer-log-scenario">
+                        <p><span class="big-number">?</span><span class="little-number">?</span></p>
                     </div>
+                    <div class="answer-log-scenario-answer">
+                        <p class="center text-shadow bg-removed">98563521</p>
+                    </div>
+                    <div class="answer-log-outcome">
+                        <i class="fa-solid fa-circle-check answer-log-correct center text-shadow bg-removed"></i>
+                    </div>
+                </div>
+                <div class="answer-log-iteration-container">
+                    <div class="answer-log-scenario">
+                        <p><span class="big-number">?</span><span class="little-number">?</span></p>
+                    </div>
+                    <div class="answer-log-scenario-answer">
+                        <p class="center text-shadow bg-removed">98563521</p>
+                    </div>
+                    <div class="answer-log-outcome">
+                        <i class="fa-solid fa-circle-xmark answer-log-wrong center text-shadow bg-removed"></i>
+                    </div>
+                </div>
             </section>
         </main>
     <!-- footoer section is bold and simple and may hold a refresh button for users to delete the log and retry calculations -->
@@ -140,5 +150,7 @@
         </footer>
     <!-- links to the javascript file for this website -->
         <script src="assets/js/script.js"></script>
+    <!-- Links to font awesome for the tick and cross/ correct and incorrect icons for answer log section -->
+        <script src="https://kit.fontawesome.com/ce872f0001.js" crossorigin="anonymous"></script>
     </body>
 </html>

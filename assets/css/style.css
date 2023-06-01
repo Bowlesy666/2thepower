@@ -106,6 +106,11 @@ main {
     color: yellow;
 }
 
+.center {
+    align-items: center;
+    padding: 110px 0;
+}
+
 button {
     color: white;
     padding: 15px;
@@ -200,11 +205,30 @@ input {
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-around;
+    padding: 40px 0;
+    border-bottom: 1px solid rgb(187, 187, 187);
 }
 
 .answer-log-scenario, .answer-log-scenario-answer, .answer-log-outcome {
     width: 220px;
     height: 200px;
+}
+
+.answer-log-correct, .answer-log-wrong {
+    font-size: 80px;
+    padding: 90px 0;
+}
+
+.answer-log-correct {
+    color: rgb(0, 255, 0);
+}
+
+.answer-log-wrong {
+    color: rgb(255, 0, 0);
+}
+
+.bg-removed {
+    background-color: rgba(0, 0, 0, 0);
 }
 
 /* Footer section padding on the bottom for aesthetics */
