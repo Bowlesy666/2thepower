@@ -244,6 +244,27 @@ footer {
     margin-bottom: 40px;
 }
 
+/* below is the syles for 404 page */
+#oops-page-main {
+    /* max-width: 600px; */
+    margin: 0 auto;
+    padding: 0 10px;
+    flex-direction: column;
+}
+
+#oops-page-main h3, #oops-page-main p {
+    margin: 0 auto;
+}
+
+#oops-page-main p {
+    color: yellow;
+    font-size: 20px;
+}
+
+.alert-div {
+    background-color: blue;
+}
+
 /* Below is the media queries to add responsive designs for different screen sizes */
 @media screen and (max-width: 630px) {
     #question-panel { order: 1; }
@@ -266,27 +287,6 @@ footer {
     }
     #title-logo { order: 1;}
     h1 { order: 2; }
-}
-
-/* below is the syles for 404 page */
-#oops-page-main {
-    /* max-width: 600px; */
-    margin: 0 auto;
-    padding: 0 10px;
-    flex-direction: column;
-}
-
-#oops-page-main h3, #oops-page-main p {
-    margin: 0 auto;
-}
-
-#oops-page-main p {
-    color: yellow;
-    font-size: 20px;
-}
-
-.alert-div {
-    background-color: blue;
 }
 
 /* below media query gives main more width to reduce space at the sides on larger screens */
