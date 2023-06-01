@@ -285,6 +285,9 @@ footer {
     font-size: 20px;
 }
 
+.alert-div {
+    background-color: blue;
+}
 
 /* below media query gives main more width to reduce space at the sides on larger screens */
 @media screen and (min-width: 920px) {
