@@ -25,7 +25,7 @@ function welcomeAlert() {
  */
 function questionChosen() {
     let chosenBigNumber = document.getElementById("big-number").value;
-    let chosenLittleNumber = document.getElementById("big-number").value;
+    let chosenLittleNumber = document.getElementById("little-number").value;
     let lockedIn = document.getElementById("input-to-locked-in");
     let newBtn = document.createElement("button");
 
@@ -48,8 +48,22 @@ function questionChosen() {
     // Adds the new button to be able to refresh the sum/panel if user no longer wants to complete the current sum
     lockedIn.appendChild(newBtn);
 
-    fillAnswerPanel();
+    // calls the next functions to fill out the next 2 panels so the user can complete the sum
+    fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
     fillWorkingsOutPanel();
+}
+
+/**
+ * This function will fill out the missing parts of the Answer panel
+ */
+function fillAnswerPanel(chosenBigNumber, chosenLittleNumber) {
+    // the below fills in the worfing of the chosen sum
+    let answerPanelBigP = document.getElementById("answer-panel-big-number-p").innerHTML = chosenBigNumber;
+    let answerPanelLittleP = document.getElementById("answer-panel-little-number-p").innerHTML = chosenLittleNumber;
+
+    // the below fills in the number representation of the sum
+    let answerPanelSpanBig = document.getElementById("answer-panel-big-number-graphical").innerHTML = chosenBigNumber;
+    let answerPanelSpanLittle = document.getElementById("answer-panel-little-number-graphical").innerHTML = chosenLittleNumber;
 }
 
 document.addEventListener("DOMContentLoaded", welcomeTimer);
