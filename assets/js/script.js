@@ -50,20 +50,46 @@ function questionChosen() {
 
     // calls the next functions to fill out the next 2 panels so the user can complete the sum
     fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
-    fillWorkingsOutPanel();
+    fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber);
 }
 
 /**
  * This function will fill out the missing parts of the Answer panel
  */
 function fillAnswerPanel(chosenBigNumber, chosenLittleNumber) {
-    // the below fills in the worfing of the chosen sum
+    // the below fills in the wording of the chosen sum
     let answerPanelBigP = document.getElementById("answer-panel-big-number-p").innerHTML = chosenBigNumber;
     let answerPanelLittleP = document.getElementById("answer-panel-little-number-p").innerHTML = chosenLittleNumber;
 
     // the below fills in the number representation of the sum
     let answerPanelSpanBig = document.getElementById("answer-panel-big-number-graphical").innerHTML = chosenBigNumber;
     let answerPanelSpanLittle = document.getElementById("answer-panel-little-number-graphical").innerHTML = chosenLittleNumber;
+}
+
+/**
+ * This function will create the amount of iterations needed for the calculation and focus user here as the second section to input
+ */
+function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
+    let scrollingContainer = document.getElementById("workings-out-scrolling-container");
+
+    scrollingContainer.innerHTML =
+        `<div id="workings-out-initial-panel">
+            <!-- div is used to keep inline blocks from allowing further elements on this line -->
+            <!-- tells the user which part of the calculation they are completing -->
+            <span class="workings-out-iteration">blah to the power [i]</span><br>
+            <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+            <span class="workings-out-previous-iteration-answer">?</span>
+            <div>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+                <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+            </div>
+            <!-- css has input going in reverse so sum can be worked out as you would normally do -->
+            <input class="workings-out-input" type="number">
+            <span id="error-message"></span>
+            <button class="workings-out-submit">Check my answer</button>
+        </div>`
+    ;
 }
 
 document.addEventListener("DOMContentLoaded", welcomeTimer);
