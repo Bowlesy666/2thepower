@@ -88,8 +88,31 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             <input class="workings-out-input" type="number">
             <span id="error-message"></span>
             <button class="workings-out-submit">Check my answer</button>
-        </div>`
-    ;
+        </div>`;
+
+    for (let i = 2; i < chosenLittleNumber; ++i) {
+            let iterationPanel = document.createElement('div');
+            iterationPanel.classList.add("workings-out-iteration-panel");
+
+            let iterationHtml = `
+            <!-- tells the user which part of the calculation they are completing -->
+            <span class="workings-out-iteration">? to the power [i]</span><br>
+            <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+            <span class="workings-out-previous-iteration-answer">?</span>
+            <!-- div is used to keep inline blocks from allowing further elements on this line -->
+            <div>
+                <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+            </div>
+            <input class="workings-out-input" type="number">
+            <span id="error-message"></span>
+            <button class="workings-out-submit">Check my answer</button>
+            `;
+
+            iterationPanel.innerHTML = iterationHtml;
+
+            scrollingContainer.appendChild(iterationPanel);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", welcomeTimer);
