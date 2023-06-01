@@ -265,6 +265,15 @@ footer {
     background-color: blue;
 }
 
+/* Below is the styles for new buttons crreated through javascript */
+#refresh-answer-panel-btn {
+    margin: 30px 5px;
+}
+
+#refresh-answer-panel-btn:hover {
+    margin: 25px 5px;
+}
+
 /* Below is the media queries to add responsive designs for different screen sizes */
 @media screen and (max-width: 630px) {
     #question-panel { order: 1; }
