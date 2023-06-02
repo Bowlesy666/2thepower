@@ -123,11 +123,29 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 }
 
 function finalAnswerSubmit() {
-    let finalAnswerSubmit = document.getElementById("final-answer-submit");
+    // let finalAnswerSubmit = document.getElementById("final-answer-submit");
     let finalAnswerError = document.getElementById("final-answer-error-message");
+    let chosenBigNumber = document.getElementsByClassName("big-number").value;
+    let chosenLittleNumber = document.getElementsByClassName("little-number").value;
+    let finalAnswerInput = document.getElementById("final-answer-input").value;
+    let finalAnswerCalculation = Math.pow(chosenBigNumber, chosenLittleNumber);
 
-    if (finalAnswerSubmit = " ") {
+    if (finalAnswerInput === "") {
         finalAnswerError.innerHTML = "Place your answer in the box!";
+    } else if (finalAnswerInput === finalAnswerCalculation) {
+        let finalAnswerOutcome = true;
+        finalAnswerError.innerHTML = "";
+
+        alert(`
+        Well Done! You got it correct!
+        You answered 
+        Dont forget to check out your calculation history in the Answer Log`);
+        // answerLog();
+        // refreshQuestionPanel();
+    } else {
+        console.log("Incorrect");
+        throw finalAnswerInput;
+        throw finalAnswerCalculation;
     }
 }
 
