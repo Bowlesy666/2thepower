@@ -122,6 +122,14 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     workingsOutFocus.focus();
 }
 
+function finalAnswerSubmit() {
+    
+}
+
 // event listeners below
+// this event listener waits for DOM to load then sets timer so user can read description before the function runs welcomeAlert
 document.addEventListener("DOMContentLoaded", welcomeTimer);
+// This event listener is for the first section submit button
 document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
+// this event listener is for teh final answer button
+document.getElementById("final-answer-submit").addEventListener("click", finalAnswerSubmit);
