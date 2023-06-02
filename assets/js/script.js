@@ -90,9 +90,11 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             <button class="workings-out-submit">Check my answer</button>
         </div>`;
 
+    // for loop sets out how many divs are needed to calculate the sum and adds the elements
     for (let i = 2; i < chosenLittleNumber; ++i) {
             let iterationPanel = document.createElement('div');
             iterationPanel.classList.add("workings-out-iteration-panel");
+            // The below was added to overcome the concatonation issue in the template literal, google didnt help so i just tried lots of things and this worked
             let trueIterationCount = i + 1;
 
             let iterationHtml = `
@@ -120,5 +122,6 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     workingsOutFocus.focus();
 }
 
+// event listeners below
 document.addEventListener("DOMContentLoaded", welcomeTimer);
 document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
