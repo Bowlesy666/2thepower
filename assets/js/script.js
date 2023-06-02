@@ -86,8 +86,8 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             </div>
             <!-- css has input going in reverse so sum can be worked out as you would normally do -->
             <input class="workings-out-input" id="workings-out-focus-1" type="number">
-            <span id="error-message"></span>
             <button class="workings-out-submit">Check my answer</button>
+            <span id="error-message"></span>
         </div>`;
 
     // for loop sets out how many divs are needed to calculate the sum and adds the elements
@@ -123,7 +123,12 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 }
 
 function finalAnswerSubmit() {
-    
+    let finalAnswerSubmit = document.getElementById("final-answer-submit");
+    let finalAnswerError = document.getElementById("final-answer-error-message");
+
+    if (finalAnswerSubmit = " ") {
+        finalAnswerError.innerHTML = "Place your answer in the box!";
+    }
 }
 
 // event listeners below
