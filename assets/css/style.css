@@ -197,9 +197,14 @@ input {
     overflow-x: scroll;
 }
 
-#workings-out-initial-panel, .workings-out-iteration-panel {
+.workings-out-iteration-panel {
     width: 250px;
     min-width: 250px;
+}
+
+#workings-out-initial-panel {
+    width: 304px;
+    min-width: 304px;
 }
 
 #hint-p {

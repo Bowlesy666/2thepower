@@ -76,16 +76,16 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
         `<div id="workings-out-initial-panel">
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
             <!-- tells the user which part of the calculation they are completing -->
-            <span class="workings-out-iteration">blah to the power [i]</span><br>
+            <span class="workings-out-iteration">${chosenBigNumber} to the power of 2</span><br>
             <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
-            <span class="workings-out-previous-iteration-answer">?</span>
+            <span class="workings-out-previous-iteration-answer">Just a normal sum</span>
             <div>
-                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">${chosenBigNumber}</p>
                 <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
-                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">${chosenBigNumber}</p>
             </div>
             <!-- css has input going in reverse so sum can be worked out as you would normally do -->
-            <input class="workings-out-input" type="number">
+            <input class="workings-out-input" id="workings-out-focus-1" type="number">
             <span id="error-message"></span>
             <button class="workings-out-submit">Check my answer</button>
         </div>`;
@@ -93,18 +93,19 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     for (let i = 2; i < chosenLittleNumber; ++i) {
             let iterationPanel = document.createElement('div');
             iterationPanel.classList.add("workings-out-iteration-panel");
+            let trueIterationCount = i + 1;
 
             let iterationHtml = `
             <!-- tells the user which part of the calculation they are completing -->
-            <span class="workings-out-iteration">? to the power [i]</span><br>
+            <span class="workings-out-iteration">${chosenBigNumber} to the power ${trueIterationCount}</span><br>
             <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
             <span class="workings-out-previous-iteration-answer">?</span>
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
             <div>
                 <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
-                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">${chosenBigNumber}</p>
             </div>
-            <input class="workings-out-input" type="number">
+            <input class="workings-out-input" id="workings-out-focus-${[i]}" type="number">
             <span id="error-message"></span>
             <button class="workings-out-submit">Check my answer</button>
             `;
@@ -113,6 +114,10 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 
             scrollingContainer.appendChild(iterationPanel);
     }
+
+    // focus on the first workings out panel to guide the user what is next to complete
+    let workingsOutFocus = document.getElementById("workings-out-focus-1");
+    workingsOutFocus.focus();
 }
 
 document.addEventListener("DOMContentLoaded", welcomeTimer);
