@@ -237,9 +237,6 @@ function refreshQuestionPanel() {
     let answerPanelSpanBig = document.getElementById("answer-panel-big-number-graphical").innerHTML = '?';
     let answerPanelSpanLittle = document.getElementById("answer-panel-little-number-graphical").innerHTML = '?';
 
-    // This event listener is for the first section submit button, i placed it here as it stopped working after the first answer is given, seems to work!
-    document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
-
     // resets the workingsOutPanel
     let scrollingContainer = document.getElementById("workings-out-scrolling-container");
 
@@ -301,6 +298,15 @@ function refreshQuestionPanel() {
     <span id="error-message"></span>
     <button class="workings-out-submit">Check my answer</button>
 </div>`;
+
+
+    // This event listener is for the first section submit button, i placed it here as it stopped working after the first answer is given, seems to work!
+    document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
+}
+
+function nullifyGlobalVariables() {
+    globalBig = null;
+    globalLittle = null;
 }
 
 // event listeners below
