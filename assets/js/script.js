@@ -148,28 +148,26 @@ function finalAnswerSubmit() {
         finalAnswerError.innerHTML = "Place your answer in the box!";
 
         console.log('No answer given');
-    } else if (finalAnswerInput === finalAnswerCalculation) {
-        let finalAnswerOutcome = true;
+    } else if (finalAnswerInput == finalAnswerCalculation) {
         finalAnswerError.innerHTML = "";
 
         alert(`
         Well Done! You got it correct!
         Keep up the good work!
         Dont forget to check out your calculation history in the Answer Log`);
-        answerLog(globalBig, globalLittle, finalAnswerCalculation, finalAnswerOutcome);
+        answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
 
         console.log('Correct Answer given');
     } else if (finalAnswerInput != finalAnswerCalculation) {
-        let finalAnswerOutcome = false;
         finalAnswerError.innerHTML = "";
 
         alert(`
         Oops, you answered that incorrect!
         Dont forget to check out your calculation history in the Answer Log
         And remember, you cam always have another try at this question`);
-        answerLog(globalBig, globalLittle, finalAnswerCalculation, finalAnswerOutcome);
+        answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
 
@@ -177,8 +175,43 @@ function finalAnswerSubmit() {
     }
 }
 
-function answerLog(globalBig, globalLittle, finalAnswerCalculation, finalAnswerOutcome) {
-    let answerLogPanel = document.getElementById('answer-log-panel')
+function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation) {
+    let answerLogPanel = document.getElementById('answer-log-panel');
+
+    // create the div for each log and set attribute for styles
+    let answerLogDiv = document.createElement('div');
+    answerLogDiv.setAttribute = ("class", "answer-log-iteration-container");
+
+    // sets the innerHTMl of the div with if statement for the img true=tick or false=cross
+    if (finalAnswerInput == finalAnswerCalculation) {
+        answerLogDiv.innerHTML = `<div class="answer-log-iteration-container">
+    <div class="answer-log-scenario">
+        <p><span class="big-number  text-shadow">${globalBig}</span><span class="little-number  text-shadow">${globalLittle}</span></p>
+    </div>
+    <div class="answer-log-scenario-answer">
+        <p class="center text-shadow bg-removed">${finalAnswerInput}</p>
+    </div>
+        <div class="answer-log-outcome">
+            <i class="fa-solid fa-circle-check answer-log-correct center text-shadow bg-removed"></i>
+        </div>
+    </div>`;
+    } else {
+        answerLogDiv.innerHTML = `<div class="answer-log-iteration-container">
+    <div class="answer-log-scenario">
+        <p><span class="big-number text-shadow">${globalBig}</span><span class="little-number  text-shadow">${globalLittle}</span></p>
+    </div>
+    <div class="answer-log-scenario-answer">
+        <p class="center text-shadow bg-removed">${finalAnswerInput}</p>
+    </div>
+        <div class="answer-log-outcome">
+        <i class="fa-solid fa-circle-xmark answer-log-wrong center text-shadow bg-removed"></i>
+        </div>
+    </div>`;
+    }
+
+    // appends the answerLogDiv to the AnswerLogPanel
+    answerLogPanel.appendChild(answerLogDiv);
+
 }
 
 // event listeners below
