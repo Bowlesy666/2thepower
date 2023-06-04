@@ -1,3 +1,7 @@
+// Global Variables are because of issues in reading the changed input as it was reading as null after HTML changed by questionChosen function
+let globalBig;
+let globalLittle;
+
 /**
  * This welcome timer allows users to see the title, read the title and header Descrition
  */
@@ -29,16 +33,16 @@ function questionChosen() {
     let lockedIn = document.getElementById("input-to-locked-in");
     let newBtn = document.createElement("button");
 
+    globalBig = chosenBigNumber;
+    globalLittle = chosenLittleNumber;
+
     // add attributes and button text for the new refresh button
     newBtn.setAttribute("id", "refresh-answer-panel-btn");
     newBtn.innerHTML = "Refresh and start a new sum";
 
     // changes the form elements into p elements so user can see what they have chosen
-    lockedIn.innerHTML = `<p class="padding-top-bottom"><span class="big-number text-shadow">` + chosenBigNumber + `</span><span class="little-number text-shadow">` + chosenLittleNumber + `</span></p>
-    
-    
-
-    
+    lockedIn.innerHTML = `<p class="padding-top-bottom"><span id="big-number" class="big-number text-shadow">` + chosenBigNumber + `</span><span id="little-number" class="little-number text-shadow">` + chosenLittleNumber + `</span></p>
+    <br>
     <p>The sum you have chosen is ` + chosenBigNumber + ` to the power of ` + chosenLittleNumber + `</p>`;
 
     // removes buttons that are no longer appropriate
@@ -51,6 +55,9 @@ function questionChosen() {
     // calls the next functions to fill out the next 2 panels so the user can complete the sum
     fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
     fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber);
+
+    console.log(chosenBigNumber + ' is the chosen big number');
+    console.log(chosenLittleNumber + ' is the chosen little number');
 }
 
 /**
@@ -64,6 +71,11 @@ function fillAnswerPanel(chosenBigNumber, chosenLittleNumber) {
     // the below fills in the number representation of the sum
     let answerPanelSpanBig = document.getElementById("answer-panel-big-number-graphical").innerHTML = chosenBigNumber;
     let answerPanelSpanLittle = document.getElementById("answer-panel-little-number-graphical").innerHTML = chosenLittleNumber;
+
+    console.log(answerPanelBigP + ' is answerPanelBigP');
+    console.log(answerPanelLittleP + ' is answerPanelLittleP');
+    console.log(answerPanelSpanBig + ' is answerPanelSpanBig');
+    console.log(answerPanelSpanLittle + ' is answerPanelSpanLittle');
 }
 
 /**
@@ -125,10 +137,15 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 function finalAnswerSubmit() {
     // let finalAnswerSubmit = document.getElementById("final-answer-submit");
     let finalAnswerError = document.getElementById("final-answer-error-message");
-    let chosenBigNumber = document.getElementsByClassName("big-number").value;
-    let chosenLittleNumber = document.getElementsByClassName("little-number").value;
-    let finalAnswerInput = document.getElementById("final-answer-input").value;
-    let finalAnswerCalculation = Math.pow(chosenBigNumber, chosenLittleNumber);
+    // let chosenBigNumber = parseInt(document.getElementById("big-number").innerHTML.value);
+    // let chosenLittleNumber = document.getElementById("little-number").innerHTML.value;
+    let finalAnswerInput = parseInt(document.getElementById("final-answer-input").value);
+    let finalAnswerCalculation = Math.pow(globalBig, globalLittle);
+
+    console.log(globalBig);
+    console.log(globalLittle);
+    console.log(finalAnswerCalculation);
+    console.log(document.getElementById("little-number").innerHTML.value);
 
     if (finalAnswerInput === "") {
         finalAnswerError.innerHTML = "Place your answer in the box!";
@@ -143,6 +160,7 @@ function finalAnswerSubmit() {
         // answerLog();
         // refreshQuestionPanel();
     } else {
+        finalAnswerError.innerHTML = "";
         console.log("Incorrect");
         throw finalAnswerInput;
         throw finalAnswerCalculation;
@@ -154,5 +172,5 @@ function finalAnswerSubmit() {
 document.addEventListener("DOMContentLoaded", welcomeTimer);
 // This event listener is for the first section submit button
 document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
-// this event listener is for teh final answer button
+// this event listener is for the final answer button
 document.getElementById("final-answer-submit").addEventListener("click", finalAnswerSubmit);
