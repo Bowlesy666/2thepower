@@ -136,7 +136,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 
 function finalAnswerSubmit() {
     let finalAnswerError = document.getElementById("final-answer-error-message");
-    let finalAnswerInput = parseInt(document.getElementById("final-answer-input").value);
+    let finalAnswerInput = document.getElementById("final-answer-input").value;
     let finalAnswerCalculation = Math.pow(globalBig, globalLittle);
 
     console.log(globalBig + ' is globalBig');
@@ -146,6 +146,8 @@ function finalAnswerSubmit() {
 
     if (finalAnswerInput === "") {
         finalAnswerError.innerHTML = "Place your answer in the box!";
+
+        console.log('No answer given');
     } else if (finalAnswerInput === finalAnswerCalculation) {
         let finalAnswerOutcome = true;
         finalAnswerError.innerHTML = "";
@@ -155,8 +157,10 @@ function finalAnswerSubmit() {
         Keep up the good work!
         Dont forget to check out your calculation history in the Answer Log`);
         answerLog(globalBig, globalLittle, finalAnswerCalculation, finalAnswerOutcome);
-        // refreshQuestionPanel();
-        // nullifyGlobalVariables();
+        refreshQuestionPanel();
+        nullifyGlobalVariables();
+
+        console.log('Correct Answer given');
     } else if (finalAnswerInput != finalAnswerCalculation) {
         let finalAnswerOutcome = false;
         finalAnswerError.innerHTML = "";
@@ -166,9 +170,15 @@ function finalAnswerSubmit() {
         Dont forget to check out your calculation history in the Answer Log
         And remember, you cam always have another try at this question`);
         answerLog(globalBig, globalLittle, finalAnswerCalculation, finalAnswerOutcome);
-        // refreshQuestionPanel();
-        // nullifyGlobalVariables();
+        refreshQuestionPanel();
+        nullifyGlobalVariables();
+
+        console.log('Incorrect answer given');
     }
+}
+
+function answerLog(globalBig, globalLittle, finalAnswerCalculation, finalAnswerOutcome) {
+    let answerLogPanel = document.getElementById('answer-log-panel')
 }
 
 // event listeners below
