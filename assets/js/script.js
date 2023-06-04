@@ -135,17 +135,14 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 }
 
 function finalAnswerSubmit() {
-    // let finalAnswerSubmit = document.getElementById("final-answer-submit");
     let finalAnswerError = document.getElementById("final-answer-error-message");
-    // let chosenBigNumber = parseInt(document.getElementById("big-number").innerHTML.value);
-    // let chosenLittleNumber = document.getElementById("little-number").innerHTML.value;
     let finalAnswerInput = parseInt(document.getElementById("final-answer-input").value);
     let finalAnswerCalculation = Math.pow(globalBig, globalLittle);
 
-    console.log(globalBig);
-    console.log(globalLittle);
-    console.log(finalAnswerCalculation);
-    console.log(document.getElementById("little-number").innerHTML.value);
+    console.log(globalBig + ' is globalBig');
+    console.log(globalLittle + ' is globalLittle');
+    console.log(finalAnswerInput + ' is finalAnswerInput')
+    console.log(finalAnswerCalculation + ' is finalAnswerCalculation');
 
     if (finalAnswerInput === "") {
         finalAnswerError.innerHTML = "Place your answer in the box!";
@@ -155,15 +152,22 @@ function finalAnswerSubmit() {
 
         alert(`
         Well Done! You got it correct!
-        You answered 
+        Keep up the good work!
         Dont forget to check out your calculation history in the Answer Log`);
-        // answerLog();
+        answerLog(globalBig, globalLittle, finalAnswerCalculation, finalAnswerOutcome);
         // refreshQuestionPanel();
-    } else {
+        // nullifyGlobalVariables();
+    } else if (finalAnswerInput != finalAnswerCalculation) {
+        let finalAnswerOutcome = false;
         finalAnswerError.innerHTML = "";
-        console.log("Incorrect");
-        throw finalAnswerInput;
-        throw finalAnswerCalculation;
+
+        alert(`
+        Oops, you answered that incorrect!
+        Dont forget to check out your calculation history in the Answer Log
+        And remember, you cam always have another try at this question`);
+        answerLog(globalBig, globalLittle, finalAnswerCalculation, finalAnswerOutcome);
+        // refreshQuestionPanel();
+        // nullifyGlobalVariables();
     }
 }
 
