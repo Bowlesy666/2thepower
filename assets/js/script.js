@@ -45,16 +45,13 @@ function questionChosen() {
     <br>
     <p>The sum you have chosen is ` + chosenBigNumber + ` to the power of ` + chosenLittleNumber + `</p>`;
 
-    // removes buttons that are no longer appropriate
-    document.getElementById("question-tile-calculate-btn").remove();
-    document.getElementById("question-tile-random-btn").remove();
-
     // Adds the new button to be able to refresh the sum/panel if user no longer wants to complete the current sum
     lockedIn.appendChild(newBtn);
 
     // calls the next functions to fill out the next 2 panels so the user can complete the sum
     fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
     fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber);
+    removeAnswerPanelBtns();
 
     console.log(chosenBigNumber + ' is the chosen big number');
     console.log(chosenLittleNumber + ' is the chosen little number');
@@ -225,9 +222,9 @@ function refreshQuestionPanel() {
                         <label for="big-number">The big number is the one to be multiplied</label><br>
                         <label for="little-number">The little number is how many times the big number is multiplied by itself</label>
                     </form>
-                </div>
-                <button id="question-tile-calculate-btn">Complete this sum</button>
-                <button id="question-tile-random-btn">Random</button>`;
+                    <button id="question-tile-calculate-btn">Complete this sum</button>
+                    <button id="question-tile-random-btn">Random</button>
+                </div>`;
 
     // the below resets the wording of the chosen sum in the final answer panel
     let answerPanelBigP = document.getElementById("answer-panel-big-number-p").innerHTML = '?';
