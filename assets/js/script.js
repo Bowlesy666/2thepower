@@ -214,6 +214,95 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
 
 }
 
+function refreshQuestionPanel() {
+    // sets the inner HTML of the question panel back to the original state
+    let lockedIn = document.getElementById("input-to-locked-in").innerHTML = `
+    <form class="padding-top-bottom">
+                        <input id="big-number" type="number" min="2" max="15" class="big-number text-shadow">
+                        <input id="little-number" type="number" min="2" max="15" class="little-number text-shadow">
+                        <br><br><br>
+                        <span id="error-message"></span>
+                        <label for="big-number">The big number is the one to be multiplied</label><br>
+                        <label for="little-number">The little number is how many times the big number is multiplied by itself</label>
+                    </form>
+                </div>
+                <button id="question-tile-calculate-btn">Complete this sum</button>
+                <button id="question-tile-random-btn">Random</button>`;
+
+    // the below resets the wording of the chosen sum in the final answer panel
+    let answerPanelBigP = document.getElementById("answer-panel-big-number-p").innerHTML = '?';
+    let answerPanelLittleP = document.getElementById("answer-panel-little-number-p").innerHTML = '?';
+
+    // the below resets the number representation of the sum in the final answer panel
+    let answerPanelSpanBig = document.getElementById("answer-panel-big-number-graphical").innerHTML = '?';
+    let answerPanelSpanLittle = document.getElementById("answer-panel-little-number-graphical").innerHTML = '?';
+
+    // This event listener is for the first section submit button, i placed it here as it stopped working after the first answer is given, seems to work!
+    document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
+
+    // resets the workingsOutPanel
+    let scrollingContainer = document.getElementById("workings-out-scrolling-container");
+
+    scrollingContainer.innerHTML = `<div id="workings-out-initial-panel">
+    <!-- div is used to keep inline blocks from allowing further elements on this line -->
+    <!-- tells the user which part of the calculation they are completing -->
+    <span class="workings-out-iteration">? to the power [i]</span><br>
+    <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+    <span class="workings-out-previous-iteration-answer">?</span>
+    <div>
+        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+    </div>
+    <!-- css has input going in reverse so sum can be worked out as you would normally do -->
+    <input class="workings-out-input" type="number">
+    <span id="error-message"></span>
+    <button class="workings-out-submit">Check my answer</button>
+</div>
+<div class="workings-out-iteration-panel">
+    <!-- tells the user which part of the calculation they are completing -->
+    <span class="workings-out-iteration">? to the power [i]</span><br>
+    <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+    <span class="workings-out-previous-iteration-answer">?</span>
+    <!-- div is used to keep inline blocks from allowing further elements on this line -->
+    <div>
+        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+    </div>
+    <input class="workings-out-input" type="number">
+    <span id="error-message"></span>
+    <button class="workings-out-submit">Check my answer</button>
+</div>
+<div class="workings-out-iteration-panel">
+    <!-- tells the user which part of the calculation they are completing -->
+    <span class="workings-out-iteration">? to the power [i]</span><br>
+    <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+    <span class="workings-out-previous-iteration-answer">?</span>
+    <!-- div is used to keep inline blocks from allowing further elements on this line -->
+    <div>
+        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+    </div>
+    <input class="workings-out-input" type="number">
+    <span id="error-message"></span>
+    <button class="workings-out-submit">Check my answer</button>
+</div>
+<div class="workings-out-iteration-panel">
+    <!-- tells the user which part of the calculation they are completing -->
+    <span class="workings-out-iteration">? to the power [i]</span><br>
+    <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+    <span class="workings-out-previous-iteration-answer">?</span>
+    <!-- div is used to keep inline blocks from allowing further elements on this line -->
+    <div>
+        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+    </div>
+    <input class="workings-out-input" type="number">
+    <span id="error-message"></span>
+    <button class="workings-out-submit">Check my answer</button>
+</div>`;
+}
+
 // event listeners below
 // this event listener waits for DOM to load then sets timer so user can read description before the function runs welcomeAlert
 document.addEventListener("DOMContentLoaded", welcomeTimer);
