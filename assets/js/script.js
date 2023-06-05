@@ -51,7 +51,6 @@ function questionChosen() {
     // calls the next functions to fill out the next 2 panels so the user can complete the sum
     fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
     fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber);
-    removeAnswerPanelBtns();
 
     console.log(chosenBigNumber + ' is the chosen big number');
     console.log(chosenLittleNumber + ' is the chosen little number');
@@ -129,6 +128,10 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     // focus on the first workings out panel to guide the user what is next to complete
     let workingsOutFocus = document.getElementById("workings-out-focus-1");
     workingsOutFocus.focus();
+}
+
+function calculateIterations() {
+
 }
 
 function finalAnswerSubmit() {
@@ -314,5 +317,7 @@ function nullifyGlobalVariables() {
 document.addEventListener("DOMContentLoaded", welcomeTimer);
 // This event listener is for the first section submit button
 document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
+//  this event listener is for the iteration calculations buttons
+document.getElementsByClassName('workings-out-submit').addEventListener("click", calculateIterations);
 // this event listener is for the final answer button
 document.getElementById("final-answer-submit").addEventListener("click", finalAnswerSubmit);
