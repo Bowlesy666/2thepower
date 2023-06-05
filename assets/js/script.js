@@ -81,7 +81,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     let scrollingContainer = document.getElementById("workings-out-scrolling-container");
 
     scrollingContainer.innerHTML =
-        `<div id="workings-out-initial-panel">
+        `<div id="workings-out-initial-panel" class="iteration-index">
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
             <!-- tells the user which part of the calculation they are completing -->
             <span class="workings-out-iteration">${chosenBigNumber} to the power of 2</span><br>
@@ -128,10 +128,28 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     // focus on the first workings out panel to guide the user what is next to complete
     let workingsOutFocus = document.getElementById("workings-out-focus-1");
     workingsOutFocus.focus();
+
+    //  this event listener is for the first iteration calculations buttons
+    document.getElementsByClassName('workings-out-submit')[0].addEventListener("click", calculateIteration);
 }
 
-function calculateIterations() {
+function calculateIteration() {
+    let scrollingContainer = document.getElementById('workings-out-scrolling-container');
+    let iterationIndex = [];
 
+    if (iterationIndex.length === 0) {
+        for (let child = 0; child < globalLittle; ++child) {
+            let iterationAnswer = Math.pow(globalBig, child + 2);
+            iterationIndex.push(iterationAnswer);
+            
+            console.log(iterationAnswer);
+        }
+    }
+
+
+    
+    console.log(iterationIndex + ' is the iteration Indexes')
+    console.log('whatup');
 }
 
 function finalAnswerSubmit() {
@@ -317,7 +335,5 @@ function nullifyGlobalVariables() {
 document.addEventListener("DOMContentLoaded", welcomeTimer);
 // This event listener is for the first section submit button
 document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
-//  this event listener is for the iteration calculations buttons
-document.getElementsByClassName('workings-out-submit').addEventListener("click", calculateIterations);
 // this event listener is for the final answer button
 document.getElementById("final-answer-submit").addEventListener("click", finalAnswerSubmit);
