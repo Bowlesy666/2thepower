@@ -1,6 +1,7 @@
 // Global Variables are because of issues in reading the changed input as it was reading as null after HTML changed by questionChosen function
 let globalBig;
 let globalLittle;
+let globalIterationCount = 2;
 
 /**
  * This welcome timer allows users to see the title, read the title and header Descrition
@@ -81,7 +82,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     let scrollingContainer = document.getElementById("workings-out-scrolling-container");
 
     scrollingContainer.innerHTML =
-        `<div id="workings-out-initial-panel" class="iteration-index">
+        `<div id="workings-out-initial-panel">
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
             <!-- tells the user which part of the calculation they are completing -->
             <span class="workings-out-iteration">${chosenBigNumber} to the power of 2</span><br>
@@ -93,8 +94,8 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
                 <p class="padding-top-bottom workings-out-medium-size text-shadow">${chosenBigNumber}</p>
             </div>
             <!-- css has input going in reverse so sum can be worked out as you would normally do -->
-            <input class="workings-out-input" id="workings-out-focus-1" type="number">
-            <button class="workings-out-submit">Check my answer</button>
+            <input id="workings-out-input" type="number">
+            <button id="workings-out-submit">Check my answer</button>
             <span id="error-message"></span>
         </div>`;
 
@@ -114,11 +115,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             <div>
                 <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
                 <p class="padding-top-bottom workings-out-medium-size text-shadow">${chosenBigNumber}</p>
-            </div>
-            <input class="workings-out-input" id="workings-out-focus-${[i]}" type="number">
-            <span id="error-message"></span>
-            <button class="workings-out-submit">Check my answer</button>
-            `;
+            </div>`;
 
             iterationPanel.innerHTML = iterationHtml;
 
@@ -126,31 +123,72 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     }
 
     // focus on the first workings out panel to guide the user what is next to complete
-    let workingsOutFocus = document.getElementById("workings-out-focus-1");
+    let workingsOutFocus = document.getElementById("workings-out-input");
     workingsOutFocus.focus();
 
     //  this event listener is for the first iteration calculations buttons
-    document.getElementsByClassName('workings-out-submit')[0].addEventListener("click", calculateIteration);
+    document.getElementById('workings-out-submit').addEventListener("click", calculateIteration);
 }
 
 function calculateIteration() {
-    let scrollingContainer = document.getElementById('workings-out-scrolling-container');
-    let iterationIndex = [];
+    let workingsOutInput = document.getElementById('workings-out-input').value;
+    
+    console.log(globalIterationCount + ' this is the iteration count before');
+    console.log(workingsOutInput + ' is the workings out input');
 
-    if (iterationIndex.length === 0) {
-        for (let child = 1; child < globalLittle; ++child) {
-            let iterationAnswer = Math.pow(globalBig, child + 1);
-            iterationIndex.push(iterationAnswer);
-            
-            console.log(iterationAnswer);
-        }
+    let iterationPow = Math.pow(globalBig, globalIterationCount);
+    ++globalIterationCount;
+
+    console.log(globalIterationCount + ' this is the iteration count after');
+    console.log(iterationPow + ' is the iterationPow');
+
+    if (workingsOutInput == iterationPow) {
+        console.log('Correct answer given');
+        alert(`Well Done! You got it right...
+Lets move on to the next section
+Keep up the great work`);
+    } else {
+        console.log('Incorrect answer given');
+        alert(`Oops, that doesnt seem to be right
+Dont worry we are going to help you with the answer this time
+Remember you can a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
     }
 
 
-    
-    console.log(iterationIndex + ' is the iteration Indexes')
-    console.log('whatup');
 }
+
+// function calculateIteration() {
+//     let scrollingContainer = document.getElementById('workings-out-scrolling-container').childNodes;
+//     let iterationIndex = [];
+//     // https://gomakethings.com/converting-a-nodelist-to-an-array-with-vanilla-javascript/ help found here
+//     let nodesArray = Array.from(scrollingContainer);
+//     console.log(nodesArray);
+//     console.log(nodesArray[0] +" is node array 0");
+
+//     if (iterationIndex.length === 0) {
+//         for (let child = 1; child < globalLittle; ++child) {
+//             let iterationAnswer = Math.pow(globalBig, child + 1);
+//             iterationIndex.push(iterationAnswer);
+            
+//             console.log(iterationAnswer);
+//         }
+//     }
+
+//     let divIndex = 0;
+
+//     scrollingContainer.button.innerHTML = 'does it work?';
+
+//     while (divIndex < globalLittle - 1) {
+//             console.log('it works');
+//             divIndex++;
+//     }
+//     console.log(iterationIndex[0] + ' is iteration index 0');
+//     console.log(scrollingContainer + ' is the scrolling container children')
+
+    
+//     console.log(iterationIndex + ' is the iteration Indexes')
+//     console.log('whatup');
+// }
 
 function finalAnswerSubmit() {
     let finalAnswerError = document.getElementById("final-answer-error-message");
@@ -325,6 +363,7 @@ function refreshQuestionPanel() {
 function nullifyGlobalVariables() {
     globalBig = null;
     globalLittle = null;
+    globalIterationCount = 2;
 
     // This empties the input field on final answer panel
     document.getElementById('final-answer-input').value = "";

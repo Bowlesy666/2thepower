@@ -175,7 +175,7 @@ input {
 }
 
 /* answers go in right to left as this is how sums are calculated */
-.workings-out-input {
+#workings-out-input {
     width: 240px;
     height: 35px;
     text-align: right;
@@ -186,7 +186,7 @@ input {
     margin: 40px 0 40px;
 }
 
-.workings-out-submit {
+#workings-out-submit {
     margin-bottom: 30px;
 }
 
