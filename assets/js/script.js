@@ -157,39 +157,6 @@ Remember you can a calculator to check your answers, whats important is that you
 
 }
 
-// function calculateIteration() {
-//     let scrollingContainer = document.getElementById('workings-out-scrolling-container').childNodes;
-//     let iterationIndex = [];
-//     // https://gomakethings.com/converting-a-nodelist-to-an-array-with-vanilla-javascript/ help found here
-//     let nodesArray = Array.from(scrollingContainer);
-//     console.log(nodesArray);
-//     console.log(nodesArray[0] +" is node array 0");
-
-//     if (iterationIndex.length === 0) {
-//         for (let child = 1; child < globalLittle; ++child) {
-//             let iterationAnswer = Math.pow(globalBig, child + 1);
-//             iterationIndex.push(iterationAnswer);
-            
-//             console.log(iterationAnswer);
-//         }
-//     }
-
-//     let divIndex = 0;
-
-//     scrollingContainer.button.innerHTML = 'does it work?';
-
-//     while (divIndex < globalLittle - 1) {
-//             console.log('it works');
-//             divIndex++;
-//     }
-//     console.log(iterationIndex[0] + ' is iteration index 0');
-//     console.log(scrollingContainer + ' is the scrolling container children')
-
-    
-//     console.log(iterationIndex + ' is the iteration Indexes')
-//     console.log('whatup');
-// }
-
 function finalAnswerSubmit() {
     let finalAnswerError = document.getElementById("final-answer-error-message");
     let finalAnswerInput = document.getElementById("final-answer-input").value;
