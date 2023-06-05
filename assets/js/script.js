@@ -304,6 +304,9 @@ function refreshQuestionPanel() {
 function nullifyGlobalVariables() {
     globalBig = null;
     globalLittle = null;
+
+    // This empties the input field on final answer panel
+    document.getElementById('final-answer-input').value = "";
 }
 
 // event listeners below
