@@ -138,8 +138,8 @@ function calculateIteration() {
     let iterationIndex = [];
 
     if (iterationIndex.length === 0) {
-        for (let child = 0; child < globalLittle; ++child) {
-            let iterationAnswer = Math.pow(globalBig, child + 2);
+        for (let child = 1; child < globalLittle; ++child) {
+            let iterationAnswer = Math.pow(globalBig, child + 1);
             iterationIndex.push(iterationAnswer);
             
             console.log(iterationAnswer);
