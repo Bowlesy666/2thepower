@@ -131,30 +131,43 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 }
 
 function calculateIteration() {
-    let workingsOutInput = document.getElementById('workings-out-input').value;
+    let workingsOutInput = document.getElementById('workings-out-input');
+    let workingsOutSubmit = document.getElementById('workings-out-submit');
+    let answerError = document.getElementById("error-message");
     
-    console.log(globalIterationCount + ' this is the iteration count before');
-    console.log(workingsOutInput + ' is the workings out input');
+    console.log(globalIterationCount + ' this is the iteration count before running function');
+    console.log(workingsOutInput.value + ' is the workings out input');
 
-    let iterationPow = Math.pow(globalBig, globalIterationCount);
-    ++globalIterationCount;
+    if (workingsOutInput.value === "") {
+        answerError.innerHTML = `<br>Place your answer in the box!`;
 
-    console.log(globalIterationCount + ' this is the iteration count after');
-    console.log(iterationPow + ' is the iterationPow');
-
-    if (workingsOutInput == iterationPow) {
-        console.log('Correct answer given');
-        alert(`Well Done! You got it right...
-Lets move on to the next section
-Keep up the great work`);
+        console.log('No answer given');
     } else {
-        console.log('Incorrect answer given');
-        alert(`Oops, that doesnt seem to be right
-Dont worry we are going to help you with the answer this time
-Remember you can a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
+        let iterationPow = Math.pow(globalBig, globalIterationCount);
+        ++globalIterationCount;
+
+        console.log(iterationPow + ' is the iterationPow');
+
+        if (workingsOutInput.value == iterationPow) {
+            alert(`Well Done! You got it right...
+    Lets move on to the next section
+    Keep up the great work`);
+            
+            console.log('Correct answer given');
+        } else {
+            alert(`Oops, that doesnt seem to be right
+    Dont worry we are going to help you with the answer this time, you will see it in the next working out stage.
+    Remember you can a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
+
+            console.log('Incorrect answer given');
+        }
+
+        console.log(globalIterationCount + ' this is the iteration count after');
+
+        this.remove(workingsOutSubmit);
+        workingsOutInput.remove();
+        answerError.remove();
     }
-
-
 }
 
 function finalAnswerSubmit() {
