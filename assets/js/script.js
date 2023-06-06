@@ -134,7 +134,11 @@ function calculateIteration() {
     let workingsOutInput = document.getElementById('workings-out-input');
     let workingsOutSubmit = document.getElementById('workings-out-submit');
     let answerError = document.getElementById("error-message");
-    
+    let correct = document.createElement("div");
+    let incorrect = document.createElement("div");
+
+    correct.innerHTML = `<i class="fa-solid fa-circle-check answer-log-correct iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Well Done! Scroll to the right</p>`;
+    incorrect.innerHTML = `<i class="fa-solid fa-circle-xmark answer-log-wrong iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Dont worry! Scroll to the right</p>`;
     console.log(globalIterationCount + ' this is the iteration count before running function');
     console.log(workingsOutInput.value + ' is the workings out input');
 
@@ -152,6 +156,8 @@ function calculateIteration() {
             alert(`Well Done! You got it right...
     Lets move on to the next section
     Keep up the great work`);
+
+            this.parentNode.appendChild(correct);
             
             console.log('Correct answer given');
         } else {
@@ -159,14 +165,46 @@ function calculateIteration() {
     Dont worry we are going to help you with the answer this time, you will see it in the next working out stage.
     Remember you can a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
 
+            this.parentNode.appendChild(incorrect);
+
             console.log('Incorrect answer given');
         }
 
         console.log(globalIterationCount + ' this is the iteration count after');
 
+        console.log(this.parentNode + ' is the parent Node');
+        console.log(this.parentNode.nextSibling + ' is the next sibling');
+        console.log(this.parentNode.nextElementSibling + ' is the next element sibling');
+
+        let nextDiv = this.parentNode.nextElementSibling;
+
         this.remove(workingsOutSubmit);
         workingsOutInput.remove();
         answerError.remove();
+
+        console.log(nextDiv + 'created after removals');
+
+        let newInput = document.createElement('input');
+        newInput.setAttribute("id", "workings-out-input");
+        newInput.setAttribute("type", "number");
+
+        let newSpan = document.createElement('Span');
+        newSpan.setAttribute("id", "error-message");
+
+        let newBtn = document.createElement('Button');
+        newBtn.setAttribute("id", "workings-out-submit");
+        newBtn.innerHTML = "Check my answer";
+
+        nextDiv.appendChild(newInput);
+        nextDiv.appendChild(newSpan);
+        nextDiv.appendChild(newBtn);
+        nextDiv.childNodes[8].innerHTML = iterationPow;
+        console.log(nextDiv.childNodes);
+
+        newInput.focus(newInput);
+
+        //  this event listener is for the following iterations buttons
+    document.getElementById('workings-out-submit').addEventListener("click", calculateIteration);
     }
 }
 

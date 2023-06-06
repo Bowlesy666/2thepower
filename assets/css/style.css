@@ -181,8 +181,6 @@ input {
     text-align: right;
     padding: 10px;
     font-size: 20px;
-    direction: rtl;
-    unicode-bidi: bidi-override;
     margin: 40px 0 40px;
 }
 
@@ -238,6 +236,11 @@ input {
 
 .answer-log-wrong {
     color: rgb(255, 0, 0);
+}
+
+.iteration-answer-log-smaller {
+    font-size: 60px;
+    padding: 10px 0;
 }
 
 .bg-removed {
