@@ -37,7 +37,7 @@ function questionChosen() {
     globalBig = chosenBigNumber;
     globalLittle = chosenLittleNumber;
 
-    // the initial if statement checks to see if either of the question input fields are blank
+    // the initial if statements check to see if either of the question input fields are blank or outside of recommended range
     if (chosenBigNumber == "" || chosenLittleNumber == "") {
         document.getElementById('error-message').innerHTML = "Hey, you need to fill in the boxes above";
 
@@ -144,6 +144,11 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     document.getElementById('workings-out-submit').addEventListener("click", calculateIteration);
 }
 
+/**
+ * This function calculates each iteration, checks if the input is blank before checking if correct
+ * removes input, btn and error message from completed section
+ * adds input, btn and error message to next iteration and also re calls event listener to new btn
+ */
 function calculateIteration() {
     let workingsOutInput = document.getElementById('workings-out-input');
     let workingsOutSubmit = document.getElementById('workings-out-submit');
@@ -163,11 +168,14 @@ function calculateIteration() {
 
         console.log('No answer given');
     } else {
+        // calculates the correct answer for each iteration then increases count ready for the next iteration
         let iterationPow = Math.pow(globalBig, globalIterationCount);
         ++globalIterationCount;
 
         console.log(iterationPow + ' is the iterationPow');
 
+        // if statements below check if correct or incorrect but also gives a different alert for 
+        // the last iteration to tell user to continue to the final answer section
         if (workingsOutInput.value == iterationPow) {
             if (globalIterationBeforeRunning == globalLittle) {
                 alert(`Well Done! You got it right...
@@ -212,14 +220,17 @@ Remember you can use a calculator to check your answers, whats important is that
         console.log(this.parentNode.nextSibling + ' is the next sibling');
         console.log(this.parentNode.nextElementSibling + ' is the next element sibling');
 
+        // this locates the next iteration parent to allow newly created elements below to be appended
         let nextDiv = this.parentNode.nextElementSibling;
 
+        // Removes elements not needed in completed iteration
         this.remove(workingsOutSubmit);
         workingsOutInput.remove();
         answerError.remove();
 
         console.log(nextDiv + ' created after removals');
 
+        // creations of new elements are below
         let newInput = document.createElement('input');
         newInput.setAttribute("id", "workings-out-input");
         newInput.setAttribute("type", "number");
@@ -231,6 +242,8 @@ Remember you can use a calculator to check your answers, whats important is that
         newBtn.setAttribute("id", "workings-out-submit");
         newBtn.innerHTML = "Check my answer";
 
+        // if statement checks if it != the last iteration then appends elements to next iteration
+        // else focus goes to the final answer input section and no nodes are appended
         if (globalIterationBeforeRunning != globalLittle) {
             nextDiv.appendChild(newInput);
             nextDiv.appendChild(newSpan);
@@ -249,6 +262,12 @@ Remember you can use a calculator to check your answers, whats important is that
     }
 }
 
+/**
+ * This function is for the final answer section submit
+ * validates that it is not blank, gives relevent alert for correct or incorrect answers
+ * calls answerLog function to give answer history and passes parameters
+ * refreshes all other panels and calls function to nullify global variables
+ */
 function finalAnswerSubmit() {
     let finalAnswerError = document.getElementById("final-answer-error-message");
     let finalAnswerInput = document.getElementById("final-answer-input").value;
@@ -290,6 +309,11 @@ function finalAnswerSubmit() {
     }
 }
 
+/**
+ * This function takes parameters from finalAnswerSubmit function
+ * creates a div to display question, inputted answer and if correct or incorrect
+ * appends div to log panel
+ */
 function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation) {
     let answerLogPanel = document.getElementById('answer-log-panel');
 
@@ -329,11 +353,19 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
 
 }
 
+/**
+ * This function is for the refresh button that is created in the question panel
+ * it not only refreshes panels but nullifies global variables
+ */
 function refreshAnswerPanelBtn() {
     refreshQuestionPanel();
     nullifyGlobalVariables();
 }
 
+/**
+ * This function is called when the final answer is given
+ * it refreshes all panels, except answer log panel, back to original state so user can continue learning journey
+ */
 function refreshQuestionPanel() {
     // sets the inner HTML of the question panel back to the original state
     let lockedIn = document.getElementById("input-to-locked-in").innerHTML = `
@@ -414,6 +446,10 @@ function refreshQuestionPanel() {
     document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
 }
 
+/**
+ * This function resets global variables and final answer input panel
+ * The user is able to choose new questions without iteration count or global variable issues
+ */
 function nullifyGlobalVariables() {
     globalBig = null;
     globalLittle = null;
