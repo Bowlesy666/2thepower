@@ -136,9 +136,11 @@ function calculateIteration() {
     let answerError = document.getElementById("error-message");
     let correct = document.createElement("div");
     let incorrect = document.createElement("div");
+    let globalIterationBeforeRunning = globalIterationCount;
+    console.log(globalIterationBeforeRunning + ' is used for the if statement to effect the last iteration differences');
 
-    correct.innerHTML = `<i class="fa-solid fa-circle-check answer-log-correct iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Well Done! Scroll to the right</p>`;
-    incorrect.innerHTML = `<i class="fa-solid fa-circle-xmark answer-log-wrong iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Dont worry! Scroll to the right</p>`;
+    correct.innerHTML = `<i class="fa-solid fa-circle-check answer-log-correct iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Well Done! Keep smashing it</p>`;
+    incorrect.innerHTML = `<i class="fa-solid fa-circle-xmark answer-log-wrong iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Dont worry! Lets keep going</p>`;
     console.log(globalIterationCount + ' this is the iteration count before running function');
     console.log(workingsOutInput.value + ' is the workings out input');
 
@@ -153,21 +155,41 @@ function calculateIteration() {
         console.log(iterationPow + ' is the iterationPow');
 
         if (workingsOutInput.value == iterationPow) {
-            alert(`Well Done! You got it right...
-    Lets move on to the next section
-    Keep up the great work`);
+            if (globalIterationBeforeRunning == globalLittle) {
+                alert(`Well Done! You got it right...
+That was your last section
+Now input the same answer into the final answer section and log your progress!`);
 
-            this.parentNode.appendChild(correct);
-            
-            console.log('Correct answer given');
+                this.parentNode.appendChild(correct);
+                
+                console.log('Correct answer given - last iteration');
+            } else {
+                alert(`Well Done! You got it right...
+Lets move on to the next section
+Keep up the great work`);
+
+                this.parentNode.appendChild(correct);
+                
+                console.log('Correct answer given');
+            }
         } else {
-            alert(`Oops, that doesnt seem to be right
-    Dont worry we are going to help you with the answer this time, you will see it in the next working out stage.
-    Remember you can a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
+            if (globalIterationBeforeRunning == globalLittle) {
+                alert(`Oops, that doesnt seem to be right
+We arent going to give you the answer this time, have another try to work it out and head on over to the final answer section to check your answer
+Remember you can use a calculator to work this out, whats important is that you understand the concept of "2 The Power"`);
+            
+                this.parentNode.appendChild(incorrect);
+    
+                console.log('Incorrect answer given - last iteration');
+            } else {
+                alert(`Oops, that doesnt seem to be right
+Dont worry we are going to help you with the answer this time, you will see it in the next working out stage.
+Remember you can use a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
 
-            this.parentNode.appendChild(incorrect);
+                this.parentNode.appendChild(incorrect);
 
-            console.log('Incorrect answer given');
+                console.log('Incorrect answer given');
+            }
         }
 
         console.log(globalIterationCount + ' this is the iteration count after');
@@ -182,7 +204,7 @@ function calculateIteration() {
         workingsOutInput.remove();
         answerError.remove();
 
-        console.log(nextDiv + 'created after removals');
+        console.log(nextDiv + ' created after removals');
 
         let newInput = document.createElement('input');
         newInput.setAttribute("id", "workings-out-input");
@@ -195,16 +217,21 @@ function calculateIteration() {
         newBtn.setAttribute("id", "workings-out-submit");
         newBtn.innerHTML = "Check my answer";
 
-        nextDiv.appendChild(newInput);
-        nextDiv.appendChild(newSpan);
-        nextDiv.appendChild(newBtn);
-        nextDiv.childNodes[8].innerHTML = iterationPow;
-        console.log(nextDiv.childNodes);
+        if (globalIterationBeforeRunning != globalLittle) {
+            nextDiv.appendChild(newInput);
+            nextDiv.appendChild(newSpan);
+            nextDiv.appendChild(newBtn);
+            nextDiv.childNodes[8].innerHTML = iterationPow;
+            console.log(nextDiv.childNodes);
 
-        newInput.focus(newInput);
+            newInput.focus(newInput);
 
-        //  this event listener is for the following iterations buttons
-    document.getElementById('workings-out-submit').addEventListener("click", calculateIteration);
+            //  this event listener is for the following iterations buttons
+            document.getElementById('workings-out-submit').addEventListener("click", calculateIteration);
+        } else {
+            document.getElementById('final-answer-input').focus();
+            console.log('im focusing on the final answer input');
+        }
     }
 }
 
