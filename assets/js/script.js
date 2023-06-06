@@ -37,27 +37,38 @@ function questionChosen() {
     globalBig = chosenBigNumber;
     globalLittle = chosenLittleNumber;
 
-    // add attributes and button text for the new refresh button
-    newBtn.setAttribute("id", "refresh-answer-panel-btn");
-    newBtn.innerHTML = "Refresh and start a new sum";
+    // the initial if statement checks to see if either of the question input fields are blank
+    if (chosenBigNumber == "" || chosenLittleNumber == "") {
+        document.getElementById('error-message').innerHTML = "Hey, you need to fill in the boxes above";
 
-    // changes the form elements into p elements so user can see what they have chosen
-    lockedIn.innerHTML = `<p class="padding-top-bottom"><span id="big-number" class="big-number text-shadow">` + chosenBigNumber + `</span><span id="little-number" class="little-number text-shadow">` + chosenLittleNumber + `</span></p>
-    <br>
-    <p>The sum you have chosen is ` + chosenBigNumber + ` to the power of ` + chosenLittleNumber + `</p>`;
+        console.log('Numbers not inputted correctly to question panel');
+    } else if (chosenBigNumber > 15 || chosenLittleNumber > 15 || chosenBigNumber < 2 || chosenLittleNumber < 3) {
+        alert('Hey! choose sensible numbers, we recommend numbers no higher than 15 and no less than 2 for the big number and no less than 3 for the little number, can you think of the reason why?');
 
-    // Adds the new button to be able to refresh the sum/panel if user no longer wants to complete the current sum
-    lockedIn.appendChild(newBtn);
+        console.log('they chose numbers outside the recommended range');
+    } else {
+        // add attributes and button text for the new refresh button
+        newBtn.setAttribute("id", "refresh-answer-panel-btn");
+        newBtn.innerHTML = "Refresh and start a new sum";
 
-    // calls the next functions to fill out the next 2 panels so the user can complete the sum
-    fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
-    fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber);
+        // changes the form elements into p elements so user can see what they have chosen
+        lockedIn.innerHTML = `<p class="padding-top-bottom"><span id="big-number" class="big-number text-shadow">` + chosenBigNumber + `</span><span id="little-number" class="little-number text-shadow">` + chosenLittleNumber + `</span></p>
+        <br>
+        <p>The sum you have chosen is ` + chosenBigNumber + ` to the power of ` + chosenLittleNumber + `</p>`;
 
-    console.log(chosenBigNumber + ' is the chosen big number');
-    console.log(chosenLittleNumber + ' is the chosen little number');
+        // Adds the new button to be able to refresh the sum/panel if user no longer wants to complete the current sum
+        lockedIn.appendChild(newBtn);
 
-    // adds event listener to newly created refresh button
-    document.getElementById("refresh-answer-panel-btn").addEventListener("click", refreshAnswerPanelBtn);
+        // calls the next functions to fill out the next 2 panels so the user can complete the sum
+        fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
+        fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber);
+
+        console.log(chosenBigNumber + ' is the chosen big number');
+        console.log(chosenLittleNumber + ' is the chosen little number');
+
+        // adds event listener to newly created refresh button
+        document.getElementById("refresh-answer-panel-btn").addEventListener("click", refreshAnswerPanelBtn);
+    }
 }
 
 /**
@@ -99,7 +110,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             <!-- css has input going in reverse so sum can be worked out as you would normally do -->
             <input id="workings-out-input" type="number">
             <button id="workings-out-submit">Check my answer</button>
-            <span id="error-message"></span>
+            <span id="workings-out-error-message"></span>
         </div>`;
 
     // for loop sets out how many divs are needed to calculate the sum and adds the elements
@@ -136,7 +147,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 function calculateIteration() {
     let workingsOutInput = document.getElementById('workings-out-input');
     let workingsOutSubmit = document.getElementById('workings-out-submit');
-    let answerError = document.getElementById("error-message");
+    let answerError = document.getElementById("workings-out-error-message");
     let correct = document.createElement("div");
     let incorrect = document.createElement("div");
     let globalIterationBeforeRunning = globalIterationCount;
@@ -214,7 +225,7 @@ Remember you can use a calculator to check your answers, whats important is that
         newInput.setAttribute("type", "number");
 
         let newSpan = document.createElement('Span');
-        newSpan.setAttribute("id", "error-message");
+        newSpan.setAttribute("id", "workings-out-error-message");
 
         let newBtn = document.createElement('Button');
         newBtn.setAttribute("id", "workings-out-submit");
@@ -361,7 +372,7 @@ function refreshQuestionPanel() {
     </div>
     <!-- css has input going in reverse so sum can be worked out as you would normally do -->
     <input id="workings-out-input" type="number">
-    <span id="error-message"></span>
+    <span id="workings-out-error-message"></span>
     <button id="workings-out-submit">Check my answer</button>
 </div>
 <div class="workings-out-iteration-panel">
