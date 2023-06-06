@@ -54,7 +54,6 @@
                         <label for="little-number">The little number is how many times the big number is multiplied by itself</label>
                     </form>
                     <button id="question-tile-calculate-btn">Complete this sum</button>
-                    <button id="question-tile-random-btn">Random</button>
                 </div>
             </section>
     <!-- this answer panel allows users to skip the working out stage if they wish and answer straight away -->
@@ -122,36 +121,15 @@
                         </div>
                     </div>
                 </div>
-                <p id="hint-p">Rememeber, these numbers enter right to left to help with your sum</p>
+                <p id="hint-p">You can scroll to the right to keep answering each section of the sum until you have completed</p>
             </section>
     <!-- this panel logs each scenario completed and gives if answered correctly or incorrectly -->
             <section id="answer-log-panel">
                 <h5 class="padding-top-bottom sub-heading text-shadow">Answer Log</h5>
-                <div class="answer-log-iteration-container">
-                    <div class="answer-log-scenario">
-                        <p><span class="big-number">?</span><span class="little-number">?</span></p>
-                    </div>
-                    <div class="answer-log-scenario-answer">
-                        <p class="center text-shadow bg-removed">98563521</p>
-                    </div>
-                    <div class="answer-log-outcome">
-                        <i class="fa-solid fa-circle-check answer-log-correct center text-shadow bg-removed"></i>
-                    </div>
-                </div>
-                <div class="answer-log-iteration-container">
-                    <div class="answer-log-scenario">
-                        <p><span class="big-number">?</span><span class="little-number">?</span></p>
-                    </div>
-                    <div class="answer-log-scenario-answer">
-                        <p class="center text-shadow bg-removed">98563521</p>
-                    </div>
-                    <div class="answer-log-outcome">
-                        <i class="fa-solid fa-circle-xmark answer-log-wrong center text-shadow bg-removed"></i>
-                    </div>
-                </div>
+                <!-- This section is filled by JS every time the final answer is submitted -->
             </section>
         </main>
-    <!-- footoer section is bold and simple and may hold a refresh button for users to delete the log and retry calculations -->
+    <!-- footoer section is bold and simple and may hold a video to play and pause -->
         <footer>
             <h6 class="sub-heading text-shadow">Thank You!!</h6>
             <br><br>
