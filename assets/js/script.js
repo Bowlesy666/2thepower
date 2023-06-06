@@ -55,6 +55,9 @@ function questionChosen() {
 
     console.log(chosenBigNumber + ' is the chosen big number');
     console.log(chosenLittleNumber + ' is the chosen little number');
+
+    // adds event listener to newly created refresh button
+    document.getElementById("refresh-answer-panel-btn").addEventListener("click", refreshAnswerPanelBtn);
 }
 
 /**
@@ -315,6 +318,11 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
 
 }
 
+function refreshAnswerPanelBtn() {
+    refreshQuestionPanel();
+    nullifyGlobalVariables();
+}
+
 function refreshQuestionPanel() {
     // sets the inner HTML of the question panel back to the original state
     let lockedIn = document.getElementById("input-to-locked-in").innerHTML = `
@@ -399,6 +407,10 @@ function nullifyGlobalVariables() {
     globalBig = null;
     globalLittle = null;
     globalIterationCount = 2;
+
+    console.log(globalBig + ' is nullified globalBig');
+    console.log(globalLittle + ' is nullified globalLittle');
+    console.log(globalIterationCount + ' is gloabalIterationCount reset to 2');
 
     // This empties the input field on final answer panel
     document.getElementById('final-answer-input').value = "";
