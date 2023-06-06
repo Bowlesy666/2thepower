@@ -371,7 +371,7 @@ function refreshQuestionPanel() {
     let lockedIn = document.getElementById("input-to-locked-in").innerHTML = `
     <form class="padding-top-bottom">
                         <input id="big-number" type="number" min="2" max="15" class="big-number text-shadow">
-                        <input id="little-number" type="number" min="2" max="15" class="little-number text-shadow">
+                        <input id="little-number" type="number" min="3" max="15" class="little-number text-shadow">
                         <br><br><br>
                         <span id="error-message"></span>
                         <label for="big-number">The big number is the one to be multiplied</label><br>
