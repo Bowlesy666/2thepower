@@ -15,11 +15,11 @@ function welcomeTimer() {
  * this is the first part of the step by step guide how to use the website
  */
 function welcomeAlert() {
-    alert(`Welcome!
-        We will take you through step by step so you know how to work it out
-        We will start by entering a number, between 2 and 15, into the larger input field
-        Then inputting a number, between 2 and 15, into the smaller input field, 
-        Notice how the smaller input field is raised up towards the top of the other number? this is how we show "to the power"`
+    alert(`Welcome to 2 The Power
+We will take you through step by step how to calculate indices
+We will start by entering a number, between 2 and 15, into the larger input box
+Then inputting a number, between 3 and 15, into the smaller input box, 
+Notice how the smaller input box is raised towards the top of the other number? this is how we show "to the power"`
     );
     document.getElementById("big-number").focus();
 }
@@ -267,7 +267,7 @@ function finalAnswerSubmit() {
         alert(`
         Oops, you answered that incorrect!
         Dont forget to check out your calculation history in the Answer Log
-        And remember, you cam always have another try at this question`);
+        And remember, you can always have another try at this question`);
         answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
@@ -290,7 +290,7 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
         <p><span class="big-number  text-shadow">${globalBig}</span><span class="little-number  text-shadow">${globalLittle}</span></p>
     </div>
     <div class="answer-log-scenario-answer">
-        <p class="center text-shadow bg-removed">${finalAnswerInput}</p>
+        <p class="center text-shadow bg-removed">You answered<br>${finalAnswerInput}</p>
     </div>
         <div class="answer-log-outcome">
             <i class="fa-solid fa-circle-check answer-log-correct center text-shadow bg-removed"></i>
@@ -302,7 +302,7 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
         <p><span class="big-number text-shadow">${globalBig}</span><span class="little-number  text-shadow">${globalLittle}</span></p>
     </div>
     <div class="answer-log-scenario-answer">
-        <p class="center text-shadow bg-removed">${finalAnswerInput}</p>
+        <p class="center text-shadow bg-removed">You answered<br>${finalAnswerInput}</p>
     </div>
         <div class="answer-log-outcome">
         <i class="fa-solid fa-circle-xmark answer-log-wrong center text-shadow bg-removed"></i>
@@ -327,7 +327,6 @@ function refreshQuestionPanel() {
                         <label for="little-number">The little number is how many times the big number is multiplied by itself</label>
                     </form>
                     <button id="question-tile-calculate-btn">Complete this sum</button>
-                    <button id="question-tile-random-btn">Random</button>
                 </div>`;
 
     // the below resets the wording of the chosen sum in the final answer panel
@@ -353,9 +352,9 @@ function refreshQuestionPanel() {
         <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
     </div>
     <!-- css has input going in reverse so sum can be worked out as you would normally do -->
-    <input class="workings-out-input" type="number">
+    <input id="workings-out-input" type="number">
     <span id="error-message"></span>
-    <button class="workings-out-submit">Check my answer</button>
+    <button id="workings-out-submit">Check my answer</button>
 </div>
 <div class="workings-out-iteration-panel">
     <!-- tells the user which part of the calculation they are completing -->
@@ -367,9 +366,6 @@ function refreshQuestionPanel() {
         <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
         <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
     </div>
-    <input class="workings-out-input" type="number">
-    <span id="error-message"></span>
-    <button class="workings-out-submit">Check my answer</button>
 </div>
 <div class="workings-out-iteration-panel">
     <!-- tells the user which part of the calculation they are completing -->
@@ -381,9 +377,6 @@ function refreshQuestionPanel() {
         <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
         <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
     </div>
-    <input class="workings-out-input" type="number">
-    <span id="error-message"></span>
-    <button class="workings-out-submit">Check my answer</button>
 </div>
 <div class="workings-out-iteration-panel">
     <!-- tells the user which part of the calculation they are completing -->
@@ -395,9 +388,6 @@ function refreshQuestionPanel() {
         <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
         <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
     </div>
-    <input class="workings-out-input" type="number">
-    <span id="error-message"></span>
-    <button class="workings-out-submit">Check my answer</button>
 </div>`;
 
 
