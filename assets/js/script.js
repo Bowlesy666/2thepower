@@ -320,7 +320,7 @@ function finalAnswerSubmit() {
     console.log(finalAnswerInput + ' is finalAnswerInput');
     console.log(finalAnswerCalculation + ' is finalAnswerCalculation');
 
-    if (globalBig || globalLittle == null) {
+    if (globalBig == null) {
         alert("You havent asked a question yet! Make sure you fill out the 'Choose your Question' section and click the 'Complete this sum' button!");
 
     } else if (finalAnswerInput === "") {
