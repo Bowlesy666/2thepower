@@ -25,6 +25,7 @@ Notice how the smaller input box is raised towards the top of the other number? 
 
     document.getElementById("big-number").focus();
 
+    // the below makes the green arrows visible, directing user to the correct section
     document.getElementById('question-arrow-1').style.visibility = "visible";
     document.getElementById('question-arrow-2').style.visibility = "visible";
     document.getElementById('question-arrow-3').style.visibility = "visible";
@@ -75,6 +76,12 @@ function questionChosen() {
 
         // adds event listener to newly created refresh button
         document.getElementById("refresh-answer-panel-btn").addEventListener("click", refreshAnswerPanelBtn);
+
+        // the below makes the green arrows hidden, letting the user know this section is complete
+        document.getElementById('question-arrow-1').style.visibility = "hidden";
+        document.getElementById('question-arrow-2').style.visibility = "hidden";
+        document.getElementById('question-arrow-3').style.visibility = "hidden";
+        document.getElementById('question-arrow-4').style.visibility = "hidden";
     }
 }
 
