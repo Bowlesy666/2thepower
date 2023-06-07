@@ -7,7 +7,7 @@ let globalIterationCount = 2;
  * This welcome timer allows users to see the title, read the title and header Descrition
  */
 function welcomeTimer() {
-    setTimeout(welcomeAlert, 10);
+    setTimeout(welcomeAlert, 6000);
 }
 
 /**
