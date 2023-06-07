@@ -150,92 +150,91 @@ input {
     z-index: 1;
 }
 
-/* below are the classes added to make the sections arrows visible or hidden */
-.question-arrow {
-    visibility: visible;
-}
-
-.answer-arrow {
-    visibility: visible;
-}
-
-.initial-wo-arrow {
-    visibility: visible;
-}
-
-/* below is the positioning for the question section arrows */
+/* below is the positioning and visibility properties for the question section arrows */
 #question-arrow-1 {
     left: -10px;
     top: -50px;
     rotate: -30deg;
+    visibility: hidden;
 }
 
 #question-arrow-2 {
     right: -268px;
     top: -119px;
     rotate: 30deg;
+    visibility: hidden;
 }
 
 #question-arrow-3 {
     left: -10px;
     bottom: -93px;
     rotate: 30deg;
+    visibility: hidden;
 }
 
 #question-arrow-4 {
     right: -268px;
     bottom: -24px;
     rotate: -30deg;
+    visibility: hidden;
 }
 
-/* below is the positioning for the final answer section arrows */
+/* below is the positioning and visibility properties for the final answer section arrows */
 #answer-arrow-1 {
     left: 12px;
     top: -60px;
     rotate: -30deg;
+    visibility: hidden;
 }
 
 #answer-arrow-2 {
     right: -256px;
     top: -128px;
     rotate: 30deg;
+    visibility: hidden;
 }
 
 #answer-arrow-3 {
     left: 14px;
     bottom: -276px;
     rotate: 30deg;
+    visibility: hidden;
 }
 
 #answer-arrow-4 {
     right: -248px;
     bottom: -211px;
     rotate: -30deg;
+    visibility: hidden;
 }
 
-/* below is the positioning for the initial workings out panel arrows */
+/* below is the positioning and visibility properties for the initial workings out panel arrows */
 #initial-wo-arrow-1 {
     left: 21px;
     top: 159px;
     rotate: 305deg;
+    visibility: visible;
 }
 
 #initial-wo-arrow-2 {
     right: -229px;
     top: 85px;
     rotate: 55deg;
+    visibility: visible;
 }
 
 #initial-wo-arrow-3 {
     left: 14px;
     bottom: -132px;
     rotate: 37deg;
+    visibility: visible;
 }
 
 #initial-wo-arrow-4 {
     right: -246px;
     bottom: -64px;
     rotate: 326deg;
+    visibility: visible;
 }
 
 /* this is for the positioning for the iteration panels arrow that shows the user to scroll to the right */

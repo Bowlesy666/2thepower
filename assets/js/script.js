@@ -7,12 +7,13 @@ let globalIterationCount = 2;
  * This welcome timer allows users to see the title, read the title and header Descrition
  */
 function welcomeTimer() {
-    setTimeout(welcomeAlert, 6000);
+    setTimeout(welcomeAlert, 4000);
 }
 
 /**
  * This function runs after the welcomeTimer completes
  * this is the first part of the step by step guide how to use the website
+ * adds green arrows to direct user to the question panel
  */
 function welcomeAlert() {
     alert(`Welcome to 2 The Power
@@ -21,7 +22,13 @@ We will start by entering a number, between 2 and 15, into the larger input box
 Then inputting a number, between 3 and 15, into the smaller input box, 
 Notice how the smaller input box is raised towards the top of the other number? this is how we show "to the power"`
     );
+
     document.getElementById("big-number").focus();
+
+    document.getElementById('question-arrow-1').style.visibility = "visible";
+    document.getElementById('question-arrow-2').style.visibility = "visible";
+    document.getElementById('question-arrow-3').style.visibility = "visible";
+    document.getElementById('question-arrow-4').style.visibility = "visible";
 }
 
 /**
