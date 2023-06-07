@@ -275,7 +275,7 @@ function finalAnswerSubmit() {
 
     console.log(globalBig + ' is globalBig');
     console.log(globalLittle + ' is globalLittle');
-    console.log(finalAnswerInput + ' is finalAnswerInput')
+    console.log(finalAnswerInput + ' is finalAnswerInput');
     console.log(finalAnswerCalculation + ' is finalAnswerCalculation');
 
     if (finalAnswerInput === "") {
