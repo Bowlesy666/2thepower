@@ -111,6 +111,12 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 
     scrollingContainer.innerHTML =
         `<div id="workings-out-initial-panel">
+            <div class="arrow-div">
+                <i class="fa-solid fa-down-long arrow initial-wo-arrow text-shadow" id="initial-wo-arrow-1"></i>
+                <i class="fa-solid fa-down-long arrow initial-wo-arrow text-shadow" id="initial-wo-arrow-2"></i>
+                <i class="fa-solid fa-up-long arrow initial-wo-arrow text-shadow" id="initial-wo-arrow-3"></i>
+                <i class="fa-solid fa-up-long arrow initial-wo-arrow text-shadow" id="initial-wo-arrow-4"></i>
+            </div>
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
             <!-- tells the user which part of the calculation they are completing -->
             <span class="workings-out-iteration">${chosenBigNumber} to the power of 2</span><br>
