@@ -110,6 +110,10 @@ main {
     padding: 110px 0;
 }
 
+.hide-me {
+    color:rgb(40, 40, 255);
+}
+
 button {
     color: white;
     padding: 15px;
