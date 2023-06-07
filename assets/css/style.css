@@ -267,7 +267,18 @@ footer {
     font-size: 20px;
 }
 
-/* Below is the styles for new buttons crreated through javascript */
+#redirect-home {
+    text-decoration: none;
+    font-size: 22px;
+}
+
+#redirect-home:hover {
+    text-decoration: underline;
+    font-size: 24px;
+    color: yellow;
+}
+
+/* Below is the styles for new buttons created through javascript */
 #refresh-answer-panel-btn {
     margin: 30px 5px;
 }
