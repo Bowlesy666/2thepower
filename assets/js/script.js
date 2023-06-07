@@ -68,9 +68,6 @@ function questionChosen() {
         fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
         fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber);
 
-        console.log(chosenBigNumber + ' is the chosen big number');
-        console.log(chosenLittleNumber + ' is the chosen little number');
-
         // adds event listener to newly created refresh button
         document.getElementById("refresh-answer-panel-btn").addEventListener("click", refreshAnswerPanelBtn);
 
@@ -90,11 +87,6 @@ function fillAnswerPanel(chosenBigNumber, chosenLittleNumber) {
     // the below fills in the number representation of the sum
     let answerPanelSpanBig = document.getElementById("answer-panel-big-number-graphical").innerHTML = chosenBigNumber;
     let answerPanelSpanLittle = document.getElementById("answer-panel-little-number-graphical").innerHTML = chosenLittleNumber;
-
-    console.log(answerPanelBigP + ' is answerPanelBigP');
-    console.log(answerPanelLittleP + ' is answerPanelLittleP');
-    console.log(answerPanelSpanBig + ' is answerPanelSpanBig');
-    console.log(answerPanelSpanLittle + ' is answerPanelSpanLittle');
 }
 
 /**
@@ -173,12 +165,9 @@ function calculateIteration() {
     let correct = document.createElement("div");
     let incorrect = document.createElement("div");
     let globalIterationBeforeRunning = globalIterationCount;
-    console.log(globalIterationBeforeRunning + ' is used for the if statement to effect the last iteration differences');
 
     correct.innerHTML = `<i class="fa-solid fa-circle-check answer-log-correct iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Well Done! Keep smashing it</p>`;
     incorrect.innerHTML = `<i class="fa-solid fa-circle-xmark answer-log-wrong iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Dont worry! Lets keep going</p>`;
-    console.log(globalIterationCount + ' this is the iteration count before running function');
-    console.log(workingsOutInput.value + ' is the workings out input');
 
     if (workingsOutInput.value === "") {
         answerError.innerHTML = `<br>Place your answer in the box!`;
@@ -188,8 +177,6 @@ function calculateIteration() {
         // calculates the correct answer for each iteration then increases count ready for the next iteration
         let iterationPow = Math.pow(globalBig, globalIterationCount);
         ++globalIterationCount;
-
-        console.log(iterationPow + ' is the iterationPow');
 
         // if statements below check if correct or incorrect but also gives a different alert for 
         // the last iteration to tell user to continue to the final answer section
@@ -201,7 +188,7 @@ Now input the same answer into the final answer section and log your progress!`)
 
                 this.parentNode.appendChild(correct);
                 
-                console.log('Correct answer given - last iteration');
+                console.log('Correct answer given - last iteration alert given to user');
             } else {
                 alert(`Well Done! You got it right...
 Lets move on to the next section
@@ -219,7 +206,7 @@ Remember you can use a calculator to work this out, whats important is that you 
             
                 this.parentNode.appendChild(incorrect);
     
-                console.log('Incorrect answer given - last iteration');
+                console.log('Incorrect answer given - last iteration alert given to user');
             } else {
                 alert(`Oops, that doesnt seem to be right
 Dont worry we are going to help you with the answer this time, you will see it in the next working out stage.
@@ -231,12 +218,6 @@ Remember you can use a calculator to check your answers, whats important is that
             }
         }
 
-        console.log(globalIterationCount + ' this is the iteration count after');
-
-        console.log(this.parentNode + ' is the parent Node');
-        console.log(this.parentNode.nextSibling + ' is the next sibling');
-        console.log(this.parentNode.nextElementSibling + ' is the next element sibling');
-
         // this locates the next iteration parent to allow newly created elements below to be appended, needs to be here as the removals below removes ability to use this.
         let nextDiv = this.parentNode.nextElementSibling;
 
@@ -247,8 +228,6 @@ Remember you can use a calculator to check your answers, whats important is that
 
         // remove arrows from initial workings out iteration while this step is now complete
         makeArrowsHidden("initial-wo");
-
-        console.log(nextDiv + ' created after removals, checking it still works');
 
         // creations of new elements are below
         let newInput = document.createElement('input');
@@ -270,7 +249,6 @@ Remember you can use a calculator to check your answers, whats important is that
             nextDiv.appendChild(newBtn);
             nextDiv.childNodes[3].innerHTML = `<i class="fa-regular fa-circle-right arrow text-shadow" id="iteration-arrow-position"></i>`;
             nextDiv.childNodes[12].innerHTML = "Now multiply " + iterationPow;
-            console.log(nextDiv.childNodes);
 
             // adds the green arrow to invite user to scroll along with calculation
 
@@ -280,7 +258,6 @@ Remember you can use a calculator to check your answers, whats important is that
             document.getElementById('workings-out-submit').addEventListener("click", calculateIteration);
         } else {
             document.getElementById('final-answer-input').focus();
-            console.log('im focusing on the final answer input');
 
             // makes green arrows visible in final answer section directing user
             makeArrowsVisible("answer");
@@ -298,11 +275,6 @@ function finalAnswerSubmit() {
     let finalAnswerError = document.getElementById("final-answer-error-message");
     let finalAnswerInput = document.getElementById("final-answer-input").value;
     let finalAnswerCalculation = Math.pow(globalBig, globalLittle);
-
-    console.log(globalBig + ' is globalBig');
-    console.log(globalLittle + ' is globalLittle');
-    console.log(finalAnswerInput + ' is finalAnswerInput');
-    console.log(finalAnswerCalculation + ' is finalAnswerCalculation');
 
     if (globalBig == null) {
         alert("You havent asked a question yet! Make sure you fill out the 'Choose your Question' section and click the 'Complete this sum' button!");
@@ -510,10 +482,6 @@ function nullifyGlobalVariables() {
     globalBig = null;
     globalLittle = null;
     globalIterationCount = 2;
-
-    console.log(globalBig + ' is nullified globalBig');
-    console.log(globalLittle + ' is nullified globalLittle');
-    console.log(globalIterationCount + ' is gloabalIterationCount reset to 2');
 
     // This empties the input field on final answer panel
     document.getElementById('final-answer-input').value = "";
