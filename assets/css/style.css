@@ -111,8 +111,7 @@ main {
 }
 
 .hide-me {
-    color: yellow;
-    visibility: hidden;
+    color: rgb(40, 40, 255);
 }
 
 button {
