@@ -243,7 +243,7 @@ Remember you can use a calculator to check your answers, whats important is that
         console.log(this.parentNode.nextSibling + ' is the next sibling');
         console.log(this.parentNode.nextElementSibling + ' is the next element sibling');
 
-        // this locates the next iteration parent to allow newly created elements below to be appended
+        // this locates the next iteration parent to allow newly created elements below to be appended, needs to be here as the removals below removes ability to use this.
         let nextDiv = this.parentNode.nextElementSibling;
 
         // Removes elements not needed in completed iteration
@@ -259,9 +259,9 @@ Remember you can use a calculator to check your answers, whats important is that
             document.getElementById('initial-wo-arrow-2').style.visibility = "hidden";
             document.getElementById('initial-wo-arrow-3').style.visibility = "hidden";
             document.getElementById('initial-wo-arrow-4').style.visibility = "hidden";
-        }
+        } 
 
-        console.log(nextDiv + ' created after removals');
+        console.log(nextDiv + ' created after removals, checking it still works');
 
         // creations of new elements are below
         let newInput = document.createElement('input');
@@ -281,8 +281,11 @@ Remember you can use a calculator to check your answers, whats important is that
             nextDiv.appendChild(newInput);
             nextDiv.appendChild(newSpan);
             nextDiv.appendChild(newBtn);
+            nextDiv.childNodes[3].innerHTML = `<i class="fa-regular fa-circle-right arrow text-shadow" id="iteration-arrow-position"></i>`;
             nextDiv.childNodes[12].innerHTML = iterationPow;
             console.log(nextDiv.childNodes);
+
+            // adds the green arrow to invite user to scroll along with calculation
 
             newInput.focus(newInput);
 
@@ -291,6 +294,12 @@ Remember you can use a calculator to check your answers, whats important is that
         } else {
             document.getElementById('final-answer-input').focus();
             console.log('im focusing on the final answer input');
+
+            // makes green arrows visible in final answer section directing user
+            document.getElementById('answer-arrow-1').style.visibility = "visible";
+            document.getElementById('answer-arrow-2').style.visibility = "visible";
+            document.getElementById('answer-arrow-3').style.visibility = "visible";
+            document.getElementById('answer-arrow-4').style.visibility = "visible";
         }
     }
 }
@@ -325,6 +334,7 @@ function finalAnswerSubmit() {
         answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
+        hideAnswerPanelArrows();
 
         console.log('Correct Answer given');
     } else if (finalAnswerInput != finalAnswerCalculation) {
@@ -337,8 +347,24 @@ function finalAnswerSubmit() {
         answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
+        hideAnswerPanelArrows();
 
         console.log('Incorrect answer given');
+    }
+
+    // focus on the answer log
+    document.getElementById('answer-log-panel').focus();
+}
+
+/**
+ * This function checks if the first answer panel arrow is visible and hides all arrows if needed to reset panel
+ */
+function hideAnswerPanelArrows() {
+    if (document.getElementById('answer-arrow-1').style.visibility = "visible") {
+        document.getElementById('answer-arrow-1').style.visibility = "hidden";
+        document.getElementById('answer-arrow-2').style.visibility = "hidden";
+        document.getElementById('answer-arrow-3').style.visibility = "hidden";
+        document.getElementById('answer-arrow-4').style.visibility = "hidden";
     }
 }
 
@@ -388,11 +414,12 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
 
 /**
  * This function is for the refresh button that is created in the question panel
- * it not only refreshes panels but nullifies global variables
+ * it not only refreshes panels but nullifies global variables and removes green arrows from final answer panel if applicable
  */
 function refreshAnswerPanelBtn() {
     refreshQuestionPanel();
     nullifyGlobalVariables();
+    hideAnswerPanelArrows();
 }
 
 /**
