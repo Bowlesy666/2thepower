@@ -107,7 +107,8 @@ main {
 
 .center {
     align-items: center;
-    padding: 110px 0;
+    padding: 88px 0;
+    font-size: 22px;
 }
 
 .hide-me {
@@ -215,28 +216,28 @@ input {
 /* below is the positioning and visibility properties for the initial workings out panel arrows */
 #initial-wo-arrow-1 {
     left: 21px;
-    top: 159px;
+    top: 168px;
     rotate: 305deg;
     visibility: visible;
 }
 
 #initial-wo-arrow-2 {
     right: -229px;
-    top: 85px;
+    top: 99px;
     rotate: 55deg;
     visibility: visible;
 }
 
 #initial-wo-arrow-3 {
     left: 14px;
-    bottom: -132px;
+    bottom: -142px;
     rotate: 37deg;
     visibility: visible;
 }
 
 #initial-wo-arrow-4 {
     right: -246px;
-    bottom: -64px;
+    bottom: -73px;
     rotate: 326deg;
     visibility: visible;
 }

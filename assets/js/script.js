@@ -25,11 +25,8 @@ Notice how the smaller input box is raised towards the top of the other number? 
 
     document.getElementById("big-number").focus();
 
-    // the below makes the green arrows visible, directing user to the correct section
-    document.getElementById('question-arrow-1').style.visibility = "visible";
-    document.getElementById('question-arrow-2').style.visibility = "visible";
-    document.getElementById('question-arrow-3').style.visibility = "visible";
-    document.getElementById('question-arrow-4').style.visibility = "visible";
+    // function allows direction arrows to be visible, directing user to the question section
+    makeArrowsVisible("question");
 }
 
 /**
@@ -77,11 +74,8 @@ function questionChosen() {
         // adds event listener to newly created refresh button
         document.getElementById("refresh-answer-panel-btn").addEventListener("click", refreshAnswerPanelBtn);
 
-        // the below makes the green arrows hidden, letting the user know this section is complete
-        document.getElementById('question-arrow-1').style.visibility = "hidden";
-        document.getElementById('question-arrow-2').style.visibility = "hidden";
-        document.getElementById('question-arrow-3').style.visibility = "hidden";
-        document.getElementById('question-arrow-4').style.visibility = "hidden";
+        // the below makes the green arrows hidden surrounding question section, letting the user know this section is complete
+        makeArrowsHidden("question");
     }
 }
 
@@ -112,10 +106,10 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
     scrollingContainer.innerHTML =
         `<div id="workings-out-initial-panel">
             <div class="arrow-div">
-                <i class="fa-solid fa-down-long arrow initial-wo-arrow text-shadow" id="initial-wo-arrow-1"></i>
-                <i class="fa-solid fa-down-long arrow initial-wo-arrow text-shadow" id="initial-wo-arrow-2"></i>
-                <i class="fa-solid fa-up-long arrow initial-wo-arrow text-shadow" id="initial-wo-arrow-3"></i>
-                <i class="fa-solid fa-up-long arrow initial-wo-arrow text-shadow" id="initial-wo-arrow-4"></i>
+                <i class="fa-solid fa-down-long arrow text-shadow" id="initial-wo-arrow-1"></i>
+                <i class="fa-solid fa-down-long arrow text-shadow" id="initial-wo-arrow-2"></i>
+                <i class="fa-solid fa-up-long arrow text-shadow" id="initial-wo-arrow-3"></i>
+                <i class="fa-solid fa-up-long arrow text-shadow" id="initial-wo-arrow-4"></i>
             </div>
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
             <!-- tells the user which part of the calculation they are completing -->
@@ -251,15 +245,8 @@ Remember you can use a calculator to check your answers, whats important is that
         workingsOutInput.remove();
         answerError.remove();
 
-        // remove arrows from initial iteration if they are still present
-        let initialArrows = document.getElementById('initial-wo-arrow-1');
-
-        if (initialArrows.style.visibility = "visible") {
-            document.getElementById('initial-wo-arrow-1').style.visibility = "hidden";
-            document.getElementById('initial-wo-arrow-2').style.visibility = "hidden";
-            document.getElementById('initial-wo-arrow-3').style.visibility = "hidden";
-            document.getElementById('initial-wo-arrow-4').style.visibility = "hidden";
-        } 
+        // remove arrows from initial workings out iteration while this step is now complete
+        makeArrowsHidden("initial-wo");
 
         console.log(nextDiv + ' created after removals, checking it still works');
 
@@ -296,10 +283,7 @@ Remember you can use a calculator to check your answers, whats important is that
             console.log('im focusing on the final answer input');
 
             // makes green arrows visible in final answer section directing user
-            document.getElementById('answer-arrow-1').style.visibility = "visible";
-            document.getElementById('answer-arrow-2').style.visibility = "visible";
-            document.getElementById('answer-arrow-3').style.visibility = "visible";
-            document.getElementById('answer-arrow-4').style.visibility = "visible";
+            makeArrowsVisible("answer");
         }
     }
 }
@@ -337,7 +321,7 @@ function finalAnswerSubmit() {
         answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
-        hideAnswerPanelArrows();
+        makeArrowsHidden("answer");
 
         console.log('Correct Answer given');
     } else if (finalAnswerInput != finalAnswerCalculation) {
@@ -350,34 +334,32 @@ function finalAnswerSubmit() {
         answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
-        hideAnswerPanelArrows();
+        makeArrowsHidden("answer");
 
         console.log('Incorrect answer given');
     }
 }
 
 /**
- * This function checks if the first answer panel arrow is visible and hides all arrows if needed to reset panel
+ * This function makes all arrows in a location hidden when called
+ * passing the arrowLocationName when calling affects the correct location
  */
-function hideAnswerPanelArrows() {
-    if (document.getElementById('answer-arrow-1').style.visibility = "visible") {
-        document.getElementById('answer-arrow-1').style.visibility = "hidden";
-        document.getElementById('answer-arrow-2').style.visibility = "hidden";
-        document.getElementById('answer-arrow-3').style.visibility = "hidden";
-        document.getElementById('answer-arrow-4').style.visibility = "hidden";
-    }
+function makeArrowsHidden(arrowLocationName) {
+        document.getElementById(`${arrowLocationName}-arrow-1`).style.visibility = "hidden";
+        document.getElementById(`${arrowLocationName}-arrow-2`).style.visibility = "hidden";
+        document.getElementById(`${arrowLocationName}-arrow-3`).style.visibility = "hidden";
+        document.getElementById(`${arrowLocationName}-arrow-4`).style.visibility = "hidden";
 }
 
 /**
- * This function checks if the first question panel arrow is hidden and makes all arrows visible if needed to reset panel
+ * This function makes all arrows in a location visible when called
+ * passing the arrowLocationName when calling affects the correct location
  */
-function questionPanelArrowsVisible() {
-    if (document.getElementById('question-arrow-1').style.visibility = "hidden") {
-        document.getElementById('question-arrow-1').style.visibility = "visible";
-        document.getElementById('question-arrow-2').style.visibility = "visible";
-        document.getElementById('question-arrow-3').style.visibility = "visible";
-        document.getElementById('question-arrow-4').style.visibility = "visible";
-    }
+function makeArrowsVisible(arrowLocationName) {
+        document.getElementById(`${arrowLocationName}-arrow-1`).style.visibility = "visible";
+        document.getElementById(`${arrowLocationName}-arrow-2`).style.visibility = "visible";
+        document.getElementById(`${arrowLocationName}-arrow-3`).style.visibility = "visible";
+        document.getElementById(`${arrowLocationName}-arrow-4`).style.visibility = "visible";
 }
 
 /**
@@ -421,7 +403,6 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
 
     // appends the answerLogDiv to the AnswerLogPanel
     answerLogPanel.appendChild(answerLogDiv);
-
 }
 
 /**
@@ -432,7 +413,7 @@ function refreshAnswerPanelBtn() {
     refreshQuestionPanel();
     nullifyGlobalVariables();
     hideAnswerPanelArrows();
-    questionPanelArrowsVisible();
+    makeArrowsVisible("question");
 }
 
 /**
@@ -441,7 +422,7 @@ function refreshAnswerPanelBtn() {
  */
 function refreshQuestionPanel() {
     // sets the inner HTML of the question panel back to the original state
-    let lockedIn = document.getElementById("input-to-locked-in").innerHTML = `
+    document.getElementById("input-to-locked-in").innerHTML = `
     <form class="padding-top-bottom">
                         <input id="big-number" type="number" min="2" max="15" class="big-number text-shadow">
                         <input id="little-number" type="number" min="3" max="15" class="little-number text-shadow">
@@ -454,12 +435,12 @@ function refreshQuestionPanel() {
                 </div>`;
 
     // the below resets the wording of the chosen sum in the final answer panel
-    let answerPanelBigP = document.getElementById("answer-panel-big-number-p").innerHTML = '?';
-    let answerPanelLittleP = document.getElementById("answer-panel-little-number-p").innerHTML = '?';
+    document.getElementById("answer-panel-big-number-p").innerHTML = '?';
+    document.getElementById("answer-panel-little-number-p").innerHTML = '?';
 
     // the below resets the number representation of the sum in the final answer panel
-    let answerPanelSpanBig = document.getElementById("answer-panel-big-number-graphical").innerHTML = '?';
-    let answerPanelSpanLittle = document.getElementById("answer-panel-little-number-graphical").innerHTML = '?';
+    document.getElementById("answer-panel-big-number-graphical").innerHTML = '?';
+    document.getElementById("answer-panel-little-number-graphical").innerHTML = '?';
 
     // resets the workingsOutPanel
     let scrollingContainer = document.getElementById("workings-out-scrolling-container");
@@ -515,7 +496,7 @@ function refreshQuestionPanel() {
     </div>
 </div>`;
 
-    questionPanelArrowsVisible();
+    makeArrowsVisible("question");
 
     // This event listener is for the first section submit button, i placed it here as it stopped working after the first answer is given, seems to work!
     document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
