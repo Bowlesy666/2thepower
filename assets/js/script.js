@@ -369,6 +369,18 @@ function hideAnswerPanelArrows() {
 }
 
 /**
+ * This function checks if the first question panel arrow is hidden and makes all arrows visible if needed to reset panel
+ */
+function questionPanelArrowsVisible() {
+    if (document.getElementById('question-arrow-1').style.visibility = "hidden") {
+        document.getElementById('question-arrow-1').style.visibility = "visible";
+        document.getElementById('question-arrow-2').style.visibility = "visible";
+        document.getElementById('question-arrow-3').style.visibility = "visible";
+        document.getElementById('question-arrow-4').style.visibility = "visible";
+    }
+}
+
+/**
  * This function takes parameters from finalAnswerSubmit function
  * creates a div to display question, inputted answer and if correct or incorrect
  * appends div to log panel
@@ -420,6 +432,7 @@ function refreshAnswerPanelBtn() {
     refreshQuestionPanel();
     nullifyGlobalVariables();
     hideAnswerPanelArrows();
+    questionPanelArrowsVisible();
 }
 
 /**
@@ -502,6 +515,7 @@ function refreshQuestionPanel() {
     </div>
 </div>`;
 
+    questionPanelArrowsVisible();
 
     // This event listener is for the first section submit button, i placed it here as it stopped working after the first answer is given, seems to work!
     document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
