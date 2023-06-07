@@ -7,7 +7,7 @@ let globalIterationCount = 2;
  * This welcome timer allows users to see the title, read the title and header Descrition
  */
 function welcomeTimer() {
-    setTimeout(welcomeAlert, 4000);
+    setTimeout(welcomeAlert, 3000);
 }
 
 /**
@@ -141,6 +141,9 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             let trueIterationCount = i + 1;
 
             let iterationHtml = `
+            <!-- this is a placeholder for the arrow to be added when the previous iteration is complete and tells the user where to go next -->
+            <div class="arrow-div">
+            </div>
             <!-- tells the user which part of the calculation they are completing -->
             <span class="workings-out-iteration">${chosenBigNumber} to the power ${trueIterationCount}</span><br>
             <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
@@ -248,6 +251,16 @@ Remember you can use a calculator to check your answers, whats important is that
         workingsOutInput.remove();
         answerError.remove();
 
+        // remove arrows from initial iteration if they are still present
+        let initialArrows = document.getElementById('initial-wo-arrow-1');
+
+        if (initialArrows.style.visibility = "visible") {
+            document.getElementById('initial-wo-arrow-1').style.visibility = "hidden";
+            document.getElementById('initial-wo-arrow-2').style.visibility = "hidden";
+            document.getElementById('initial-wo-arrow-3').style.visibility = "hidden";
+            document.getElementById('initial-wo-arrow-4').style.visibility = "hidden";
+        }
+
         console.log(nextDiv + ' created after removals');
 
         // creations of new elements are below
@@ -268,7 +281,7 @@ Remember you can use a calculator to check your answers, whats important is that
             nextDiv.appendChild(newInput);
             nextDiv.appendChild(newSpan);
             nextDiv.appendChild(newBtn);
-            nextDiv.childNodes[8].innerHTML = iterationPow;
+            nextDiv.childNodes[12].innerHTML = iterationPow;
             console.log(nextDiv.childNodes);
 
             newInput.focus(newInput);
