@@ -165,7 +165,6 @@ input {
 
 .workings-out-previous-iteration-answer {
     display: flex;
-    flex: end;
     font-size: 20px;
     direction: rtl;
     width: 100%;
