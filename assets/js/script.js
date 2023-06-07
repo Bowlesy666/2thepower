@@ -47,7 +47,7 @@ function questionChosen() {
 
     // the initial if statements check to see if either of the question input fields are blank or outside of recommended range
     if (chosenBigNumber == "" || chosenLittleNumber == "") {
-        document.getElementById('error-message').innerHTML = "Hey, you need to fill in the boxes above";
+        document.getElementById('error-message').innerHTML = "Hey, you need to fill in the boxes!<br>";
 
         console.log('Numbers not inputted correctly to question panel');
     } else if (chosenBigNumber > 15 || chosenLittleNumber > 15 || chosenBigNumber < 2 || chosenLittleNumber < 3) {
@@ -282,7 +282,7 @@ Remember you can use a calculator to check your answers, whats important is that
             nextDiv.appendChild(newSpan);
             nextDiv.appendChild(newBtn);
             nextDiv.childNodes[3].innerHTML = `<i class="fa-regular fa-circle-right arrow text-shadow" id="iteration-arrow-position"></i>`;
-            nextDiv.childNodes[12].innerHTML = iterationPow;
+            nextDiv.childNodes[12].innerHTML = "Now multiply " + iterationPow;
             console.log(nextDiv.childNodes);
 
             // adds the green arrow to invite user to scroll along with calculation
@@ -306,7 +306,7 @@ Remember you can use a calculator to check your answers, whats important is that
 
 /**
  * This function is for the final answer section submit
- * validates that it is not blank, gives relevent alert for correct or incorrect answers
+ * validates that it is not blank and that a question has been asked, gives relevent alert
  * calls answerLog function to give answer history and passes parameters
  * refreshes all other panels and calls function to nullify global variables
  */
@@ -320,7 +320,10 @@ function finalAnswerSubmit() {
     console.log(finalAnswerInput + ' is finalAnswerInput');
     console.log(finalAnswerCalculation + ' is finalAnswerCalculation');
 
-    if (finalAnswerInput === "") {
+    if (globalBig || globalLittle == null) {
+        alert("You havent asked a question yet! Make sure you fill out the 'Choose your Question' section and click the 'Complete this sum' button!");
+
+    } else if (finalAnswerInput === "") {
         finalAnswerError.innerHTML = "Place your answer in the box!";
 
         console.log('No answer given');
@@ -351,9 +354,6 @@ function finalAnswerSubmit() {
 
         console.log('Incorrect answer given');
     }
-
-    // focus on the answer log
-    document.getElementById('answer-log-panel').focus();
 }
 
 /**

@@ -114,6 +114,10 @@ main {
     color: rgb(40, 40, 255);
 }
 
+#error-message {
+    color: yellow;
+}
+
 button {
     color: white;
     padding: 15px;
@@ -167,14 +171,14 @@ input {
 
 #question-arrow-3 {
     left: -10px;
-    bottom: -93px;
+    bottom: -89px;
     rotate: 30deg;
     visibility: hidden;
 }
 
 #question-arrow-4 {
     right: -268px;
-    bottom: -24px;
+    bottom: -20px;
     rotate: -30deg;
     visibility: hidden;
 }
@@ -278,6 +282,9 @@ input {
 
 .workings-out-previous-iteration-answer {
     display: flex;
+    height: 50px;
+    position: relative;
+    z-index: 1;
     font-size: 20px;
     direction: rtl;
     width: 100%;
