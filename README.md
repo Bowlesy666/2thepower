@@ -193,3 +193,40 @@ The history log is the last section, this is auto completed after the final inpu
 
 ___
 
+## Features
+
+
+* built using mobile first style, responsive for larger screen sizes using flex box
+
+* Is accessibility compliant utilising the most effective colours for this with sight isses or colour blindness
+
+* The website features a bold logo and title which appeals to younger users 
+
+* The sections are strategically placed to allow users to visualise the calculation process
+
+* The page uses focus() and green arrows to direct the user to the relevent section 
+
+* The website also includes favicons and a 404 page for improved user experience.
+
+* The 404 page is in the style of "2 The Power" with the answer to 40 to the power of 4
+
+* The website utilizes flexbox for layout styling
+
+* The site uses media queries and CSS order property to change the order of the final answer section to below the workings out section on mobiles and above on larger screens
+
+* The site uses input validation via html and Js - Js will pass error messages bacl to the html
+
+* Utilises event listeners for click on the buttons
+
+* Utilises event listeners for key press enter(This was taken from the love maths code along with Code Institute)
+
+* hover effects
+
+* Google fonts
+
+* Font Awesome utilised for the icons
+
+* Canva text to image ai technology used to create the logo image
+
+___
+
