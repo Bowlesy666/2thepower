@@ -57,3 +57,33 @@ ___
 
 ___
 
+## UX
+
+### User Stories
+
+#### Target Audience
+
+The target audience for "2 The Power" are:
+
+* Aspiring young maths students looking to broaden their own knowledge
+* Parents wishing to push and see progress in their childrens mathematics abilities
+* Teachers wanting to find a fun way to engage students when calculating indices
+
+#### Goals
+
+The goals for "2 The Power" are:
+
+* To offer an interactive exercise to reinforce learning and test understanding
+* To provide a short how-to guide to calculating indices, including step-by-step instructions and taking users through the process.
+* To provide a space for users to work out the sums and log their answers for progress tracking and review
+* To provide a mobile first structure to the site for users who prefer to learn on ipads/tablets and parents phones
+
+#### User Stories
+
+* As a teacher, I want my students to practice calculating numbers to the power of another number so they can improve their math skills.
+* As a young student, I want to learn how to calculate numbers to the power of another number so I can solve more difficult math problems.
+* As a home schooler, I want my child to have access to an app that teaches them how to calculate numbers to the power of another number so they can learn at their own pace.
+* As a tutor, I want to use an app that teaches how to calculate numbers to the power of another number to help my students who struggle with math.
+* As an older student who struggles with maths, I want to use an app that teaches how to calculate indices and the steps I should take to work it out on my own so I can improve my confidence in math.
+
+___
