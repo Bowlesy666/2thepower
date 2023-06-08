@@ -155,28 +155,28 @@ input {
 #question-arrow-1 {
     left: -10px;
     top: -50px;
-    rotate: -30deg;
+    transform: rotate(-30deg);
     visibility: hidden;
 }
 
 #question-arrow-2 {
     right: -268px;
     top: -119px;
-    rotate: 30deg;
+    transform: rotate(30deg);
     visibility: hidden;
 }
 
 #question-arrow-3 {
     left: -10px;
     bottom: -89px;
-    rotate: 30deg;
+    transform: rotate(30deg);
     visibility: hidden;
 }
 
 #question-arrow-4 {
     right: -268px;
     bottom: -20px;
-    rotate: -30deg;
+    transform: rotate(-30deg);
     visibility: hidden;
 }
 
@@ -184,28 +184,28 @@ input {
 #answer-arrow-1 {
     left: 12px;
     top: -60px;
-    rotate: -30deg;
+    transform: rotate(-30deg);
     visibility: hidden;
 }
 
 #answer-arrow-2 {
     right: -256px;
     top: -128px;
-    rotate: 30deg;
+    transform: rotate(30deg);
     visibility: hidden;
 }
 
 #answer-arrow-3 {
     left: 14px;
     bottom: -276px;
-    rotate: 30deg;
+    transform: rotate(30deg);
     visibility: hidden;
 }
 
 #answer-arrow-4 {
     right: -248px;
     bottom: -211px;
-    rotate: -30deg;
+    transform: rotate(-30deg);
     visibility: hidden;
 }
 
@@ -213,28 +213,28 @@ input {
 #initial-wo-arrow-1 {
     left: 21px;
     top: 168px;
-    rotate: 305deg;
+    transform: rotate(305deg);
     visibility: visible;
 }
 
 #initial-wo-arrow-2 {
     right: -229px;
     top: 99px;
-    rotate: 55deg;
+    transform: rotate(55deg);
     visibility: visible;
 }
 
 #initial-wo-arrow-3 {
     left: 14px;
     bottom: -142px;
-    rotate: 37deg;
+    transform: rotate(37deg);
     visibility: visible;
 }
 
 #initial-wo-arrow-4 {
     right: -246px;
     bottom: -73px;
-    rotate: 326deg;
+    transform: rotate(326deg);
     visibility: visible;
 }
 
