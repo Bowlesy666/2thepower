@@ -9,3 +9,14 @@ Our goal is to make learning easy and accessible for everyone. We believe that e
 
 Thank you for choosing 2 The Power as your learning resource. We hope you enjoy your experience on our website and gain valuable knowledge that will help you in your academic and personal life
 
+![Am i reponsive - 2 The Power Screenshot](assets/images/responsive-screenshot.png)
+
+Links to Git hub repository and live site pages below
+
+[Git Hub Repo - 2 The Power](https://github.com/Bowlesy666/2thepower)
+
+[Live deployed site - 2 The Power](https://bowlesy666.github.io/2thepower/)
+
+[Live deployed site - 404 page](https://bowlesy666.github.io/2thepower/404.html)
+
+___
