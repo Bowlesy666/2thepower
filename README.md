@@ -177,7 +177,7 @@ The user is then directed to the workings out section with the green arrows now 
 
 As you can see below the flow is controlled with the green arrows, only one input and button is available at a time in this section so there is no confusion Ps i got one wrong on purpose!
 
-![Page Flow - Workings Out Section Iterations](assets/images/page-flow-workings-1.png)
+![Page Flow - Workings Out Section Iterations](assets/images/page-flow-workings-2.png)
 
 #### Final Answer Section
 
@@ -195,6 +195,7 @@ ___
 
 ## Features
 
+### General Features
 
 * built using mobile first style, responsive for larger screen sizes using flex box
 
@@ -228,5 +229,75 @@ ___
 
 * Canva text to image ai technology used to create the logo image
 
+### Future Implementations
+
+I am overall happy with the design of the site! I feel the learning curve here was huge as I have never touched javascript before. Here are a couple of things that would boost the website given extra time
+
+* Instead of alert() I would like to explore alternatives where I could add styles
+
+* When the first correct answer is logged in the history I would like to produce a badge for the user, the user would be prompted with the next thresholds for further badges ie 5 correct, 10 correct
+
+* Random numbers feature would be nice, I removed this as I thought it would be too close to the Love maths project
+
+* Tooltips on hover or on click of inputs
+
+* help buttons to explain in detail the calculation and process
+
+* How to video, planned for my daughter to make a video to add in the footer which would take users through teh layout and features in a fun way(time constraints left me unable to complete this)
+
+### Accessibility
+
+I have been checking that the website is accessible friendly at every stage using Lighthouse and wave.webaim.org. I have also been mindful that I am:
+
+* Using semantic HTML techniques.
+* Using descriptive alt attributes on logo for the site.
+* Providing clear direction and flow for the users with the use of bold icons and arrows.
+* Ensuring that there is a sufficient colour contrast throughout the site, after researching in my previous project blue and yellow wasd shown to be the best colours to use together.
+* Bold and colourful large text.
+* Well spaced sections and big buttons allowing even the youngest and clumsiest of users to be able to use the site.
+
 ___
+
+## Technology Used
+
+### Languages Used
+
+* HTML
+
+* CSS
+
+* Javascript
+
+### Frameworks, Libraries & Programs Used
+
+* Flexbox
+
+* Canva text to image ai
+
+* Google fonts
+
+* Font Awesome
+
+* Git for version control
+
+* Github
+
+* Gitpod
+
+* Favicongenerator.org
+
+* Coolors
+
+* Am-i-responsive
+
+* Mockup used for the wireframes, but will return to Balsamiq
+
+* Google Dev Tools
+
+* Validators - jshint, validator.w3.org, jigsaw.w3.org, wave.webaim.org
+
+* Accesible colour checker - accesibleweb.com
+
+* Stackoverflow - actually found that stackoverflow hasnt given me any direct answers as i dont understand the code that people put on there but it massively helped spark new things which in turn helped me solve problems
+
 
