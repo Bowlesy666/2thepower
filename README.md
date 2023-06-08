@@ -398,8 +398,42 @@ Focus() does not always work, the cursor goes into the correct input boxes but s
 | To provide a short how-to guide to calculating indices, including step-by-step instructions and taking users through the process | user is lead through the process, instructions, feedback or error messages given at each stage | peer reviews and personal testing for the instructions at each stage |
 | To provide a space for users to work out the sums and log their answers for progress tracking and review | workings out section | section is present, displays sum visually and correctly, feedback at each stage of the workings out |
 | To provide a mobile first structure to the site for users who prefer to learn on ipads/tablets and parents phones | CSS is lead by mobile first, utilising flex box and media queries | peer and personal reviews on smaller hand held devices |
-| :--- | :--- | :--- |
 
 #### Testing
 
+| Feature | Type of Test | Expected Outcome | Result | Pass/Fail |
+| ------- | ------------ | ---------------- | ------ | --------- |
+| welcome timer | reload window and test timer length and if function called after | 2 to 3 seconds timer and green arrows appear on screen | as expected | Pass |
+| green arrows and focus in inputs | run through with blank, invalid, correct and incorrect input at each stage | green arrows in correct place and cursor in correct input box at each stage | green arrows good cursor in inputs at correct times, screen does not always follow unless you type then screen moves | Pass |
+| error messages | invalid or blank inputs | error messages displayed | as expected | Pass |
+| Js populates html according to input and event | run through with blank, invalid, correct and incorrect input at each stage | each element filled out correctly and working as expected | as expected | Pass |
+| Answer history log | complete several tests with right and wrong answers | logs question, final input and gives icon for correct or incorrect | as expected | Pass |
+| on hover effects | hover over buttons at onload, at each stage the buttons are written to the window | increase in size, color change no other elements pushed | as expected | Pass |
+| 404 to index link | hover and click | on hover increase size and colour, no other elements pushed | as expected | Pass |
 
+___
+
+## Credits
+
+### Canva text to image ai 
+
+How cool is this! saved me a tonne of time creating the logo and is free to use commercially
+
+### Flexbox
+
+Flexbox I had learned form Freecodecamp a long time ago
+
+### Other Credits
+
+* Favicon-generator.org used to create the favicons
+* Mockup app on my iPhone, i dont think its half as good as balsamiq but it allowed me to create the wireframes whilst on holiday so was worth a shot
+
+### Rubber Duck
+
+Last but not least a shout out to my rubber duck, while I havent actually got a rubber duck yet this is actually my wife
+
+![Rubber Duck is actually the wife](assets/images/rubber-duck-wife.png)
+
+___
+
+Thnak you for reviewing my project!
