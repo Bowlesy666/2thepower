@@ -300,4 +300,106 @@ ___
 
 * Stackoverflow - actually found that stackoverflow hasnt given me any direct answers as i dont understand the code that people put on there but it massively helped spark new things which in turn helped me solve problems
 
+___
+
+## Deployment and Local Development
+
+### Deployment
+
+I have deployed my project using GitHub Pages. Click this [link](https://bowlesy666.github.io/2thepower/) to view the deployed project.
+
+To deploy the project I followed the below instructions:
+
+1. Login or Sign Up to GitHub.
+2. Open the project repository [here.](https://github.com/Bowlesy666/Tribute-Page-PP1)
+3. Click on "Settings" on the navigation bar under the repository title.
+4. Click on "Pages" in the left hand navigation panel.
+5. In the Build and deployment section under "Source", choose which branch to deploy. This should be Main.
+6. Choose which folder to deploy from, usually "/root".
+7. Click "Save", then wait for it to be deployed. It can take some time for the page to be fully deployed and you may have to refresh the page after a couple of minutes.
+8. Your URL will be displayed above "Source".
+9. The prject will now be deployed
+
+### Local Development
+
+#### How to Fork
+
+To fork the repository:
+
+1. Log in (or sign up) to Github.
+2. Go to the repository for this project, [Tribute-Page-PP1](https://github.com/Bowlesy666/2thepower).
+3. Click the Fork button in the top right corner.
+
+#### How to Clone
+
+To clone the repository:
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [Tribute-Page-PP1](https://github.com/Bowlesy666/2thepower).
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+___
+
+## Testing
+
+### Validators
+
+* HTML has been validated with [W3C HTML5 Validator](https://validator.w3.org/).
+* CSS has been validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+* javascript has been validated with [JShint](https://jshint.com/)
+
+No errors or warnings are returned when passed through any of the validators
+
+### General Testing
+
+* Each feature or section was tested using the validators and lighthouse at each stage for functionality and accessibility
+* The input is validated by html and js and will not submit without correct type of input
+* The correct error messages are provided when input is invalid
+* Family and slack peer review were used for feedback
+
+### Mobile Testing
+
+* The site was built in mobile first style so has been tested primarily for this
+* predominantly tested on Safari as all family have iPhones
+
+### Desktop Testing
+
+* Site was developed on a HP laptop using chrome, also tested on microsoft Edge towards the end of the coding stages
+
+___
+
+### Bugs
+
+Wow, what fun javascript is, I love fixing issues so this opened up many opportunities to do this! when implementing new features and functions, something would need changing and it would break something else, then fixing the second would produce a third etc. all in all it is a very rewarding experience and I look forward to honing in on these skills
+
+#### Fixed Bugs
+
+I have broken so many things during the course of this project! Below is a very small selection of them as i truely cant remember them all with it being more of a learning curve.
+
+* event listener onclick, had to include it in functions as new html didnt have it attached(if thats not the case thats how I think of it at the moment)
+* enter key event listeners, had to recall them when new html elements were created
+* enter key event listener issue at the final answer section, after enter the alert would come up to say well done, then you would press enter to close alert, this re submitting final answer but the alert wads for "" input, overcame this by changing "" input to an error message in the div and not alert(). it just vanished like magic! or did it? The error still shows "You havent asked a Question yet!", which is actually 100% true, its hardly noticable and once you choose a new sum it disappears, so its now a feature not a bug
+* this. was working ok until I added more to a function and it suddenly stopped, found as I was removing elements I removed this. i overcame that by utilising this. before removing the lement in the function
+* found another bug with this. so just removed it and found by Id
+
+Again thats a very small selection of things I messed up and fixed, sorry i mean bugs found in the code. Ultimately its going to be down to lack of experience and me finding my feet with JS. its been fun though!
+
+#### Unfixed Bugs
+
+Focus() does not always work, the cursor goes into the correct input boxes but screen does not always follow(mainly Chrome issue as works on safari) researching has not produced any fix for this yet, though it works on mobile every time it was tested
+
+#### Goals
+
+| Goals | How is goal achieved? | summary of checks |
+| :--- | :--- | :--- |
+| To offer an interactive exercise to reinforce learning and test understanding | User interaction needed to calculate, feedback given with icons and answer history is logged | user interactions, answer log, icons are all present and work correctly |
+| To provide a short how-to guide to calculating indices, including step-by-step instructions and taking users through the process | user is lead through the process, instructions, feedback or error messages given at each stage | peer reviews and personal testing for the instructions at each stage |
+| To provide a space for users to work out the sums and log their answers for progress tracking and review | workings out section | section is present, displays sum visually and correctly, feedback at each stage of the workings out |
+| To provide a mobile first structure to the site for users who prefer to learn on ipads/tablets and parents phones | CSS is lead by mobile first, utilising flex box and media queries | peer and personal reviews on smaller hand held devices |
+| :--- | :--- | :--- |
+
+#### Testing
+
 
