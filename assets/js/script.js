@@ -17,17 +17,17 @@ function welcomeTimer() {
  */
 function welcomeAlert() {
     alert(`Welcome to 2 The Power
-We will take you through step by step how to calculate indices
-We will start by entering a number, between 2 and 15, into the larger input box
-Then inputting a number, between 3 and 15, into the smaller input box, 
-Notice how the smaller input box is raised towards the top of the other number? this is how we show "to the power"`
+        We will take you through step by step how to calculate indices
+        We will start by entering a number, between 2 and 15, into the larger input box
+        Then inputting a number, between 3 and 15, into the smaller input box, 
+        Notice how the smaller input box is raised towards the top of the other number? this is how we show "to the power"`
     );
 
     document.getElementById("big-number").focus();
 
     // function allows direction arrows to be visible, directing user to the question section
     makeArrowsVisible("question");
-    // // function to start the enter keys listeners
+    // function to start the enter keys listeners
     enterKeyListener("big-number", questionChosen);
     enterKeyListener("little-number", questionChosen);
 }
@@ -112,7 +112,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             </div>
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
             <!-- tells the user which part of the calculation they are completing -->
-            <label for="workings-out-input"></label><span class="workings-out-iteration">${chosenBigNumber} to the power of 2</span></label><br>
+            <label for="workings-out-input" class="workings-out-iteration">${chosenBigNumber} to the power of 2</label><br>
             <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
             <span class="workings-out-previous-iteration-answer">Just a normal sum</span>
             <div>
@@ -134,18 +134,18 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             let trueIterationCount = i + 1;
 
             let iterationHtml = `
-            <!-- this is a placeholder for the arrow to be added when the previous iteration is complete and tells the user where to go next -->
-            <div class="arrow-div">
-            </div>
-            <!-- tells the user which part of the calculation they are completing -->
-            <label for="workings-out-input"></label><span class="workings-out-iteration">${chosenBigNumber} to the power ${trueIterationCount}</span></label></label><br>
-            <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
-            <span class="workings-out-previous-iteration-answer">?</span>
-            <!-- div is used to keep inline blocks from allowing further elements on this line -->
-            <div>
-                <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
-                <p class="padding-top-bottom workings-out-medium-size text-shadow">${chosenBigNumber}</p>
-            </div>`;
+                <!-- this is a placeholder for the arrow to be added when the previous iteration is complete and tells the user where to go next -->
+                <div class="arrow-div">
+                </div>
+                <!-- tells the user which part of the calculation they are completing -->
+                <label for="workings-out-input" class="workings-out-iteration">${chosenBigNumber} to the power ${trueIterationCount}</label><br>
+                <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+                <span class="workings-out-previous-iteration-answer">?</span>
+                <!-- div is used to keep inline blocks from allowing further elements on this line -->
+                <div>
+                    <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+                    <p class="padding-top-bottom workings-out-medium-size text-shadow">${chosenBigNumber}</p>
+                </div>`;
 
             iterationPanel.innerHTML = iterationHtml;
 
@@ -191,8 +191,8 @@ function calculateIteration() {
         if (workingsOutInput.value == iterationPow) {
             if (globalIterationBeforeRunning == globalLittle) {
                 alert(`Well Done! You got it right...
-That was your last section
-Now input the same answer into the final answer section and log your progress!`);
+                        That was your last section
+                        Now input the same answer into the final answer section and log your progress!`);
 
                 workingsOutSubmit.parentNode.appendChild(correct);
                 hintP.innerHTML = "Well done! Youve just worked it out, now put the last answer into the final answer box(The one that has green arrows around it now)";
@@ -200,8 +200,8 @@ Now input the same answer into the final answer section and log your progress!`)
                 console.log('Correct answer given - last iteration alert given to user');
             } else {
                 alert(`Well Done! You got it right...
-Lets move on to the next section
-Keep up the great work`);
+                    Lets move on to the next section
+                    Keep up the great work`);
 
                 workingsOutSubmit.parentNode.appendChild(correct);
                 
@@ -210,8 +210,8 @@ Keep up the great work`);
         } else {
             if (globalIterationBeforeRunning == globalLittle) {
                 alert(`Oops, that doesnt seem to be right
-We arent going to give you the answer this time, have another try to work it out and head on over to the final answer section to check your answer
-Remember you can use a calculator to work this out, whats important is that you understand the concept of "2 The Power"`);
+                    We arent going to give you the answer this time, have another try to work it out and head on over to the final answer section to check your answer
+                    Remember you can use a calculator to work this out, whats important is that you understand the concept of "2 The Power"`);
             
                 workingsOutSubmit.parentNode.appendChild(incorrect);
                 hintP.innerHTML = "Oops! You will need to work out the last part again, once you think you have it put your final answer into the final answer box(The one that has green arrows around it now)";
@@ -219,8 +219,8 @@ Remember you can use a calculator to work this out, whats important is that you 
                 console.log('Incorrect answer given - last iteration alert given to user');
             } else {
                 alert(`Oops, that doesnt seem to be right
-Dont worry we are going to help you with the answer this time, you will see it in the next working out stage.
-Remember you can use a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
+                    Dont worry we are going to help you with the answer this time, you will see it in the next working out stage.
+                    Remember you can use a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
 
                 workingsOutSubmit.parentNode.appendChild(incorrect);
 
@@ -232,6 +232,11 @@ Remember you can use a calculator to check your answers, whats important is that
     }
 }
 
+/** 
+ * Function creates the symbol for right/wrong answer and removes input, button and error for current div
+ * creates input, button and error for the next div along
+ * it also checks to see if it is the last div, then will not write new elements as there is no div there for it to go in to
+ */
 function elementsCreateOrRemove(workingsOutInput, workingsOutSubmit, answerError, globalIterationBeforeRunning, iterationPow) {
     // this locates the next iteration parent to allow newly created elements below to be appended, needs to be here as the removals below removes ability to use this.
     let nextDiv = workingsOutSubmit.parentNode.nextElementSibling;
@@ -305,9 +310,9 @@ function finalAnswerSubmit() {
         finalAnswerError.innerHTML = "";
 
         alert(`
-        Well Done! You got it correct!
-        Keep up the good work!
-        Dont forget to check out your calculation history in the Answer Log`);
+            Well Done! You got it correct!
+            Keep up the good work!
+            Dont forget to check out your calculation history in the Answer Log`);
         answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
@@ -319,9 +324,9 @@ function finalAnswerSubmit() {
         finalAnswerError.innerHTML = "";
 
         alert(`
-        Oops, you answered that incorrect!
-        Dont forget to check out your calculation history in the Answer Log
-        And remember, you can always have another try at this question`);
+            Oops, you answered that incorrect!
+            Dont forget to check out your calculation history in the Answer Log
+            And remember, you can always have another try at this question`);
         answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalculation);
         refreshQuestionPanel();
         nullifyGlobalVariables();
@@ -369,28 +374,28 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
     // sets the innerHTMl of the div with if statement for the img true=tick or false=cross
     if (finalAnswerInput == finalAnswerCalculation) {
         answerLogDiv.innerHTML = `<div class="answer-log-iteration-container">
-    <div class="answer-log-scenario">
-        <p><span class="big-number  text-shadow">${globalBig}</span><span class="little-number  text-shadow">${globalLittle}</span></p>
-    </div>
-    <div class="answer-log-scenario-answer">
-        <p class="center text-shadow bg-removed">You answered<br>${finalAnswerInput}</p>
-    </div>
-        <div class="answer-log-outcome">
-            <i class="fa-solid fa-circle-check answer-log-correct center text-shadow bg-removed"></i>
-        </div>
-    </div>`;
+            <div class="answer-log-scenario">
+                <p><span class="big-number  text-shadow">${globalBig}</span><span class="little-number  text-shadow">${globalLittle}</span></p>
+            </div>
+            <div class="answer-log-scenario-answer">
+                <p class="center text-shadow bg-removed">You answered<br>${finalAnswerInput}</p>
+            </div>
+                <div class="answer-log-outcome">
+                    <i class="fa-solid fa-circle-check answer-log-correct center text-shadow bg-removed"></i>
+                </div>
+            </div>`;
     } else {
         answerLogDiv.innerHTML = `<div class="answer-log-iteration-container">
-    <div class="answer-log-scenario">
-        <p><span class="big-number text-shadow">${globalBig}</span><span class="little-number  text-shadow">${globalLittle}</span></p>
-    </div>
-    <div class="answer-log-scenario-answer">
-        <p class="center text-shadow bg-removed">You answered<br>${finalAnswerInput}</p>
-    </div>
-        <div class="answer-log-outcome">
-        <i class="fa-solid fa-circle-xmark answer-log-wrong center text-shadow bg-removed"></i>
-        </div>
-    </div>`;
+            <div class="answer-log-scenario">
+                <p><span class="big-number text-shadow">${globalBig}</span><span class="little-number  text-shadow">${globalLittle}</span></p>
+            </div>
+            <div class="answer-log-scenario-answer">
+                <p class="center text-shadow bg-removed">You answered<br>${finalAnswerInput}</p>
+            </div>
+                <div class="answer-log-outcome">
+                <i class="fa-solid fa-circle-xmark answer-log-wrong center text-shadow bg-removed"></i>
+                </div>
+            </div>`;
     }
 
     // appends the answerLogDiv to the AnswerLogPanel and creates focus to the panel
@@ -420,16 +425,15 @@ function refreshAnswerPanelBtn() {
 function refreshQuestionPanel() {
     // sets the inner HTML of the question panel back to the original state
     document.getElementById("input-to-locked-in").innerHTML = `
-    <form class="padding-top-bottom">
-                        <input id="big-number" type="number" min="2" max="15" class="big-number text-shadow">
-                        <input id="little-number" type="number" min="3" max="15" class="little-number text-shadow">
-                        <br><br><br>
-                        <span id="error-message"></span>
-                        <label for="big-number">The big number is the one to be multiplied</label><br>
-                        <label for="little-number">The little number is how many times the big number is multiplied by itself</label>
-                    </form>
-                    <button id="question-tile-calculate-btn">Complete this sum</button>
-                </div>`;
+        <form class="padding-top-bottom">
+            <input id="big-number" type="number" min="2" max="15" class="big-number text-shadow">
+            <input id="little-number" type="number" min="3" max="15" class="little-number text-shadow">
+            <br><br><br>
+            <span id="error-message"></span>
+            <label for="big-number">The big number is the one to be multiplied</label><br>
+            <label for="little-number">The little number is how many times the big number is multiplied by itself</label>
+        </form>
+        <button id="question-tile-calculate-btn">Complete this sum</button>`;
 
     // the below resets the wording of the chosen sum in the final answer panel
     document.getElementById("answer-panel-big-number-p").innerHTML = '?';
@@ -443,54 +447,54 @@ function refreshQuestionPanel() {
     let scrollingContainer = document.getElementById("workings-out-scrolling-container");
 
     scrollingContainer.innerHTML = `<div id="workings-out-initial-panel">
-    <!-- div is used to keep inline blocks from allowing further elements on this line -->
-    <!-- tells the user which part of the calculation they are completing -->
-    <label for="workings-out-input"></label><span class="workings-out-iteration">? to the power [i]</span><br>
-    <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
-    <span class="workings-out-previous-iteration-answer">?</span>
-    <div>
-        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
-        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
-        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
-    </div>
-    <!-- css has input going in reverse so sum can be worked out as you would normally do -->
-    <input id="workings-out-input" type="number">
-    <span id="workings-out-error-message"></span>
-    <button id="workings-out-submit">Check my answer</button>
-</div>
-<div class="workings-out-iteration-panel">
-    <!-- tells the user which part of the calculation they are completing -->
-    <span class="workings-out-iteration">? to the power [i]</span><br>
-    <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
-    <span class="workings-out-previous-iteration-answer">?</span>
-    <!-- div is used to keep inline blocks from allowing further elements on this line -->
-    <div>
-        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
-        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
-    </div>
-</div>
-<div class="workings-out-iteration-panel">
-    <!-- tells the user which part of the calculation they are completing -->
-    <span class="workings-out-iteration">? to the power [i]</span><br>
-    <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
-    <span class="workings-out-previous-iteration-answer">?</span>
-    <!-- div is used to keep inline blocks from allowing further elements on this line -->
-    <div>
-        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
-        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
-    </div>
-</div>
-<div class="workings-out-iteration-panel">
-    <!-- tells the user which part of the calculation they are completing -->
-    <span class="workings-out-iteration">? to the power [i]</span><br>
-    <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
-    <span class="workings-out-previous-iteration-answer">?</span>
-    <!-- div is used to keep inline blocks from allowing further elements on this line -->
-    <div>
-        <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
-        <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
-    </div>
-</div>`;
+            <!-- div is used to keep inline blocks from allowing further elements on this line -->
+            <!-- tells the user which part of the calculation they are completing -->
+            <span class="workings-out-iteration">? to the power [i]</span><br>
+            <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+            <span class="workings-out-previous-iteration-answer">?</span>
+            <div>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+                <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+            </div>
+            <!-- css has input going in reverse so sum can be worked out as you would normally do -->
+            <input id="workings-out-input" type="number">
+            <span id="workings-out-error-message"></span>
+            <button id="workings-out-submit">Check my answer</button>
+        </div>
+        <div class="workings-out-iteration-panel">
+            <!-- tells the user which part of the calculation they are completing -->
+            <span class="workings-out-iteration">? to the power [i]</span><br>
+            <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+            <span class="workings-out-previous-iteration-answer">?</span>
+            <!-- div is used to keep inline blocks from allowing further elements on this line -->
+            <div>
+                <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+            </div>
+        </div>
+        <div class="workings-out-iteration-panel">
+            <!-- tells the user which part of the calculation they are completing -->
+            <span class="workings-out-iteration">? to the power [i]</span><br>
+            <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+            <span class="workings-out-previous-iteration-answer">?</span>
+            <!-- div is used to keep inline blocks from allowing further elements on this line -->
+            <div>
+                <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+            </div>
+        </div>
+        <div class="workings-out-iteration-panel">
+            <!-- tells the user which part of the calculation they are completing -->
+            <span class="workings-out-iteration">? to the power [i]</span><br>
+            <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
+            <span class="workings-out-previous-iteration-answer">?</span>
+            <!-- div is used to keep inline blocks from allowing further elements on this line -->
+            <div>
+                <p class="padding-top-bottom workings-out-multiply-sign text-shadow">x</p>
+                <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
+            </div>
+        </div>`;
 
     document.getElementById("hint-p").innerHTML = 'You can scroll to the right to keep answering each section of the sum until you have completed the calculation. Remember the big number is laid out as many times as the little number says<br>eg. 3 to the power of 5 is laid out as "3 x 3 x 3 x 3 x 3"';
 
