@@ -7,7 +7,7 @@ let globalIterationCount = 2;
  * This welcome timer allows users to see the title, read the title and header Descrition
  */
 function welcomeTimer() {
-    setTimeout(welcomeAlert, 3000);
+    setTimeout(welcomeAlert, 2000);
 }
 
 /**
@@ -27,6 +27,9 @@ Notice how the smaller input box is raised towards the top of the other number? 
 
     // function allows direction arrows to be visible, directing user to the question section
     makeArrowsVisible("question");
+    // // function to start the enter keys listeners
+    enterKeyListener("big-number", questionChosen);
+    enterKeyListener("little-number", questionChosen);
 }
 
 /**
@@ -47,10 +50,10 @@ function questionChosen() {
         document.getElementById('error-message').innerHTML = "Hey, you need to fill in the boxes!<br>";
 
         console.log('Numbers not inputted correctly to question panel');
-    } else if (chosenBigNumber > 15 || chosenLittleNumber > 15 || chosenBigNumber < 2 || chosenLittleNumber < 3) {
-        alert('Hey! choose sensible numbers, we recommend numbers no higher than 15 and no less than 2 for the big number and no less than 3 for the little number, can you think of the reason why?');
+    } else if (chosenBigNumber > 15 || chosenLittleNumber > 15 || chosenBigNumber < 2 || chosenLittleNumber < 3 || isNaN(chosenBigNumber) || isNaN(chosenLittleNumber)) {
+        alert('Hey! choose sensible numbers, no decimals, symbols or letters! We recommend numbers no higher than 15 and no less than 2 for the big number and no less than 3 for the little number, can you think of the reason why?');
 
-        console.log('they chose numbers outside the recommended range');
+        console.log('they chose non numbers or numbers outside the recommended range');
     } else {
         // add attributes and button text for the new refresh button
         newBtn.setAttribute("id", "refresh-answer-panel-btn");
@@ -68,11 +71,14 @@ function questionChosen() {
         fillAnswerPanel(chosenBigNumber, chosenLittleNumber);
         fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber);
 
-        // adds event listener to newly created refresh button
-        document.getElementById("refresh-answer-panel-btn").addEventListener("click", refreshAnswerPanelBtn);
-
         // the below makes the green arrows hidden surrounding question section, letting the user know this section is complete
         makeArrowsHidden("question");
+
+        // adds event listener to newly created refresh button
+        document.getElementById("refresh-answer-panel-btn").addEventListener("click", refreshAnswerPanelBtn);
+        // enter key event listeners
+        enterKeyListener("final-answer-input", finalAnswerSubmit);
+        enterKeyListener("workings-out-input", calculateIteration);
     }
 }
 
@@ -81,12 +87,12 @@ function questionChosen() {
  */
 function fillAnswerPanel(chosenBigNumber, chosenLittleNumber) {
     // the below fills in the wording of the chosen sum
-    let answerPanelBigP = document.getElementById("answer-panel-big-number-p").innerHTML = chosenBigNumber;
-    let answerPanelLittleP = document.getElementById("answer-panel-little-number-p").innerHTML = chosenLittleNumber;
+    document.getElementById("answer-panel-big-number-p").innerHTML = chosenBigNumber;
+    document.getElementById("answer-panel-little-number-p").innerHTML = chosenLittleNumber;
 
     // the below fills in the number representation of the sum
-    let answerPanelSpanBig = document.getElementById("answer-panel-big-number-graphical").innerHTML = chosenBigNumber;
-    let answerPanelSpanLittle = document.getElementById("answer-panel-little-number-graphical").innerHTML = chosenLittleNumber;
+    document.getElementById("answer-panel-big-number-graphical").innerHTML = chosenBigNumber;
+    document.getElementById("answer-panel-little-number-graphical").innerHTML = chosenLittleNumber;
 }
 
 /**
@@ -186,7 +192,7 @@ function calculateIteration() {
 That was your last section
 Now input the same answer into the final answer section and log your progress!`);
 
-                this.parentNode.appendChild(correct);
+                workingsOutSubmit.parentNode.appendChild(correct);
                 
                 console.log('Correct answer given - last iteration alert given to user');
             } else {
@@ -194,7 +200,7 @@ Now input the same answer into the final answer section and log your progress!`)
 Lets move on to the next section
 Keep up the great work`);
 
-                this.parentNode.appendChild(correct);
+                workingsOutSubmit.parentNode.appendChild(correct);
                 
                 console.log('Correct answer given');
             }
@@ -204,7 +210,7 @@ Keep up the great work`);
 We arent going to give you the answer this time, have another try to work it out and head on over to the final answer section to check your answer
 Remember you can use a calculator to work this out, whats important is that you understand the concept of "2 The Power"`);
             
-                this.parentNode.appendChild(incorrect);
+                workingsOutSubmit.parentNode.appendChild(incorrect);
     
                 console.log('Incorrect answer given - last iteration alert given to user');
             } else {
@@ -212,56 +218,63 @@ Remember you can use a calculator to work this out, whats important is that you 
 Dont worry we are going to help you with the answer this time, you will see it in the next working out stage.
 Remember you can use a calculator to check your answers, whats important is that you understand the concept of "2 The Power"`);
 
-                this.parentNode.appendChild(incorrect);
+                workingsOutSubmit.parentNode.appendChild(incorrect);
 
                 console.log('Incorrect answer given');
             }
         }
 
-        // this locates the next iteration parent to allow newly created elements below to be appended, needs to be here as the removals below removes ability to use this.
-        let nextDiv = this.parentNode.nextElementSibling;
+        elementsCreateOrRemove(workingsOutInput, workingsOutSubmit, answerError, globalIterationBeforeRunning, iterationPow);
+    }
+}
 
-        // Removes elements not needed in completed iteration
-        this.remove(workingsOutSubmit);
-        workingsOutInput.remove();
-        answerError.remove();
+function elementsCreateOrRemove(workingsOutInput, workingsOutSubmit, answerError, globalIterationBeforeRunning, iterationPow) {
+    // this locates the next iteration parent to allow newly created elements below to be appended, needs to be here as the removals below removes ability to use this.
+    let nextDiv = workingsOutSubmit.parentNode.nextElementSibling;
 
-        // remove arrows from initial workings out iteration while this step is now complete
-        makeArrowsHidden("initial-wo");
+    // Removes elements not needed in completed iteration
+    workingsOutSubmit.remove(workingsOutSubmit);
+    workingsOutInput.remove();
+    answerError.remove();
 
-        // creations of new elements are below
-        let newInput = document.createElement('input');
-        newInput.setAttribute("id", "workings-out-input");
-        newInput.setAttribute("type", "number");
+    // remove arrows from initial workings out iteration while this step is now complete
+    makeArrowsHidden("initial-wo");
 
-        let newSpan = document.createElement('Span');
-        newSpan.setAttribute("id", "workings-out-error-message");
+    // creations of new elements are below
+    let newInput = document.createElement('input');
+    newInput.setAttribute("id", "workings-out-input");
+    newInput.setAttribute("type", "number");
 
-        let newBtn = document.createElement('Button');
-        newBtn.setAttribute("id", "workings-out-submit");
-        newBtn.innerHTML = "Check my answer";
+    let newSpan = document.createElement('Span');
+    newSpan.setAttribute("id", "workings-out-error-message");
 
-        // if statement checks if it != the last iteration then appends elements to next iteration
-        // else focus goes to the final answer input section and no nodes are appended
-        if (globalIterationBeforeRunning != globalLittle) {
-            nextDiv.appendChild(newInput);
-            nextDiv.appendChild(newSpan);
-            nextDiv.appendChild(newBtn);
-            nextDiv.childNodes[3].innerHTML = `<i class="fa-regular fa-circle-right arrow text-shadow" id="iteration-arrow-position"></i>`;
-            nextDiv.childNodes[12].innerHTML = "Now multiply " + iterationPow;
+    let newBtn = document.createElement('Button');
+    newBtn.setAttribute("id", "workings-out-submit");
+    newBtn.innerHTML = "Check my answer";
 
-            // adds the green arrow to invite user to scroll along with calculation
+    // if statement checks if it != the last iteration then appends elements to next iteration
+    // else focus goes to the final answer input section and no nodes are appended
+    if (globalIterationBeforeRunning != globalLittle) {
+        nextDiv.appendChild(newInput);
+        nextDiv.appendChild(newSpan);
+        nextDiv.appendChild(newBtn);
+        nextDiv.childNodes[3].innerHTML = `<i class="fa-regular fa-circle-right arrow text-shadow" id="iteration-arrow-position"></i>`;
+        nextDiv.childNodes[12].innerHTML = "Now multiply " + iterationPow;
 
-            newInput.focus(newInput);
+        // adds the green arrow to invite user to scroll along with calculation
 
-            //  this event listener is for the following iterations buttons
-            document.getElementById('workings-out-submit').addEventListener("click", calculateIteration);
-        } else {
-            document.getElementById('final-answer-input').focus();
+        newInput.focus(newInput);
 
-            // makes green arrows visible in final answer section directing user
-            makeArrowsVisible("answer");
-        }
+        //  this event listener is for the following iterations buttons
+        document.getElementById('workings-out-submit').addEventListener("click", calculateIteration);
+
+        // adds listeners to newly created buttons at each iteration after each answer submitted and new button/input created
+        enterKeyListener("workings-out-input", calculateIteration); 
+    } else {
+        document.getElementById('final-answer-input').focus();
+
+        // makes green arrows visible in final answer section directing user
+        makeArrowsVisible("answer");
     }
 }
 
@@ -294,6 +307,7 @@ function finalAnswerSubmit() {
         refreshQuestionPanel();
         nullifyGlobalVariables();
         makeArrowsHidden("answer");
+        document.getElementById("big-number").focus();
 
         console.log('Correct Answer given');
     } else if (finalAnswerInput != finalAnswerCalculation) {
@@ -307,6 +321,7 @@ function finalAnswerSubmit() {
         refreshQuestionPanel();
         nullifyGlobalVariables();
         makeArrowsHidden("answer");
+        document.getElementById("big-number").focus();
 
         console.log('Incorrect answer given');
     }
@@ -373,19 +388,24 @@ function answerLog(globalBig, globalLittle, finalAnswerInput, finalAnswerCalcula
     </div>`;
     }
 
-    // appends the answerLogDiv to the AnswerLogPanel
+    // appends the answerLogDiv to the AnswerLogPanel and creates focus to the panel
     answerLogPanel.appendChild(answerLogDiv);
+    answerLogPanel.focus();
 }
 
 /**
  * This function is for the refresh button that is created in the question panel
- * it not only refreshes panels but nullifies global variables and removes green arrows from final answer panel if applicable
+ * it not only refreshes panels but nullifies global variables, restarts event listeners and removes green arrows from final answer panel if applicable
  */
 function refreshAnswerPanelBtn() {
     refreshQuestionPanel();
     nullifyGlobalVariables();
-    hideAnswerPanelArrows();
+    makeArrowsHidden("answer");
     makeArrowsVisible("question");
+    enterKeyListener("big-number", questionChosen);
+    enterKeyListener("little-number", questionChosen);
+
+    document.getElementById("big-number").focus();
 }
 
 /**
@@ -470,8 +490,10 @@ function refreshQuestionPanel() {
 
     makeArrowsVisible("question");
 
-    // This event listener is for the first section submit button, i placed it here as it stopped working after the first answer is given, seems to work!
+    // This event listeners are for the first section submit button, i placed them here as they stopped working after the first answer is given, seems to work!
     document.getElementById("question-tile-calculate-btn").addEventListener("click", questionChosen);
+    enterKeyListener("big-number", questionChosen);
+    enterKeyListener("little-number", questionChosen);
 }
 
 /**
@@ -485,6 +507,19 @@ function nullifyGlobalVariables() {
 
     // This empties the input field on final answer panel
     document.getElementById('final-answer-input').value = "";
+}
+
+/**
+ * This re activates the event listeners for the enter button
+ * This is slightly modified from code institutes love maths code along, but it is given the parameters for the input location
+ * this is the only code that is not original
+ */
+function enterKeyListener(inputLocationId, doFunction) {
+    document.getElementById(`${inputLocationId}`).addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            doFunction();
+        }
+    });
 }
 
 // event listeners below
