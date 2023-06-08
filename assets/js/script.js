@@ -80,6 +80,7 @@ function questionChosen() {
         enterKeyListener("final-answer-input", finalAnswerSubmit);
         enterKeyListener("workings-out-input", calculateIteration);
     }
+    document.getElementById("final-answer-error-message").innerHTML = "";
 }
 
 /**
@@ -171,6 +172,7 @@ function calculateIteration() {
     let correct = document.createElement("div");
     let incorrect = document.createElement("div");
     let globalIterationBeforeRunning = globalIterationCount;
+    let hintP = document.getElementById("hint-p");
 
     correct.innerHTML = `<i class="fa-solid fa-circle-check answer-log-correct iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Well Done! Keep smashing it</p>`;
     incorrect.innerHTML = `<i class="fa-solid fa-circle-xmark answer-log-wrong iteration-answer-log-smaller center text-shadow bg-removed"></i><br><p>Dont worry! Lets keep going</p>`;
@@ -193,6 +195,7 @@ That was your last section
 Now input the same answer into the final answer section and log your progress!`);
 
                 workingsOutSubmit.parentNode.appendChild(correct);
+                hintP.innerHTML = "Well done! Youve just worked it out, now put the last answer into the final answer box(The one that has green arrows around it now)"
                 
                 console.log('Correct answer given - last iteration alert given to user');
             } else {
@@ -211,6 +214,7 @@ We arent going to give you the answer this time, have another try to work it out
 Remember you can use a calculator to work this out, whats important is that you understand the concept of "2 The Power"`);
             
                 workingsOutSubmit.parentNode.appendChild(incorrect);
+                hintP.innerHTML = "Oops! You will need to work out the last part again, once you think you have it put your final answer into the final answer box(The one that has green arrows around it now)"
     
                 console.log('Incorrect answer given - last iteration alert given to user');
             } else {
@@ -290,7 +294,8 @@ function finalAnswerSubmit() {
     let finalAnswerCalculation = Math.pow(globalBig, globalLittle);
 
     if (globalBig == null) {
-        alert("You havent asked a question yet! Make sure you fill out the 'Choose your Question' section and click the 'Complete this sum' button!");
+        // alert("You havent asked a question yet! Make sure you fill out the 'Choose your Question' section and click the 'Complete this sum' button!");
+        document.getElementById("final-answer-error-message").innerHTML = "You havent asked a question yet!";
 
     } else if (finalAnswerInput === "") {
         finalAnswerError.innerHTML = "Place your answer in the box!";
@@ -487,6 +492,8 @@ function refreshQuestionPanel() {
         <p class="padding-top-bottom workings-out-medium-size text-shadow">?</p>
     </div>
 </div>`;
+
+    document.getElementById("hint-p").innerHTML = 'You can scroll to the right to keep answering each section of the sum until you have completed the calculation. Remember the big number is laid out as many times as the little number says<br>eg. 3 to the power of 5 is laid out as "3 x 3 x 3 x 3 x 3"';
 
     makeArrowsVisible("question");
 
