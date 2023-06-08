@@ -112,7 +112,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             </div>
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
             <!-- tells the user which part of the calculation they are completing -->
-            <span class="workings-out-iteration">${chosenBigNumber} to the power of 2</span><br>
+            <label for="workings-out-input"></label><span class="workings-out-iteration">${chosenBigNumber} to the power of 2</span></label><br>
             <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
             <span class="workings-out-previous-iteration-answer">Just a normal sum</span>
             <div>
@@ -138,7 +138,7 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
             <div class="arrow-div">
             </div>
             <!-- tells the user which part of the calculation they are completing -->
-            <span class="workings-out-iteration">${chosenBigNumber} to the power ${trueIterationCount}</span><br>
+            <label for="workings-out-input"></label><span class="workings-out-iteration">${chosenBigNumber} to the power ${trueIterationCount}</span></label></label><br>
             <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
             <span class="workings-out-previous-iteration-answer">?</span>
             <!-- div is used to keep inline blocks from allowing further elements on this line -->
@@ -195,7 +195,7 @@ That was your last section
 Now input the same answer into the final answer section and log your progress!`);
 
                 workingsOutSubmit.parentNode.appendChild(correct);
-                hintP.innerHTML = "Well done! Youve just worked it out, now put the last answer into the final answer box(The one that has green arrows around it now)"
+                hintP.innerHTML = "Well done! Youve just worked it out, now put the last answer into the final answer box(The one that has green arrows around it now)";
                 
                 console.log('Correct answer given - last iteration alert given to user');
             } else {
@@ -214,7 +214,7 @@ We arent going to give you the answer this time, have another try to work it out
 Remember you can use a calculator to work this out, whats important is that you understand the concept of "2 The Power"`);
             
                 workingsOutSubmit.parentNode.appendChild(incorrect);
-                hintP.innerHTML = "Oops! You will need to work out the last part again, once you think you have it put your final answer into the final answer box(The one that has green arrows around it now)"
+                hintP.innerHTML = "Oops! You will need to work out the last part again, once you think you have it put your final answer into the final answer box(The one that has green arrows around it now)";
     
                 console.log('Incorrect answer given - last iteration alert given to user');
             } else {
@@ -445,7 +445,7 @@ function refreshQuestionPanel() {
     scrollingContainer.innerHTML = `<div id="workings-out-initial-panel">
     <!-- div is used to keep inline blocks from allowing further elements on this line -->
     <!-- tells the user which part of the calculation they are completing -->
-    <span class="workings-out-iteration">? to the power [i]</span><br>
+    <label for="workings-out-input"></label><span class="workings-out-iteration">? to the power [i]</span><br>
     <!-- the below span holds the answer to the previous iteration that is now multiplied by the big number -->
     <span class="workings-out-previous-iteration-answer">?</span>
     <div>
@@ -455,7 +455,6 @@ function refreshQuestionPanel() {
     </div>
     <!-- css has input going in reverse so sum can be worked out as you would normally do -->
     <input id="workings-out-input" type="number">
-    <label for="workings-out-input"></label>
     <span id="workings-out-error-message"></span>
     <button id="workings-out-submit">Check my answer</button>
 </div>

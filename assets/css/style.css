@@ -111,10 +111,6 @@ main {
     font-size: 22px;
 }
 
-.hide-me {
-    color: rgb(40, 40, 255);
-}
-
 #error-message {
     color: yellow;
 }
