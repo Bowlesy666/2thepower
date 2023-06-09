@@ -243,7 +243,7 @@ I am overall happy with the design of the site! I feel the learning curve here w
 
 * help buttons to explain in detail the calculation and process
 
-* How to video, planned for my daughter to make a video to add in the footer which would take users through teh layout and features in a fun way(time constraints left me unable to complete this)
+* How to video, planned for my daughter to make a video to add in the footer which would take users through the layout and features in a fun way(time constraints left me unable to complete this)
 
 ### Accessibility
 
@@ -252,7 +252,7 @@ I have been checking that the website is accessible friendly at every stage usin
 * Using semantic HTML techniques.
 * Using descriptive alt attributes on logo for the site.
 * Providing clear direction and flow for the users with the use of bold icons and arrows.
-* Ensuring that there is a sufficient colour contrast throughout the site, after researching in my previous project blue and yellow wasd shown to be the best colours to use together.
+* Ensuring that there is a sufficient colour contrast throughout the site, after researching in my previous project blue and yellow was shown to be the best colours to use together.
 * Bold and colourful large text.
 * Well spaced sections and big buttons allowing even the youngest and clumsiest of users to be able to use the site.
 
@@ -298,7 +298,7 @@ ___
 
 * Accesible colour checker - accesibleweb.com
 
-* Stackoverflow - actually found that stackoverflow hasnt given me any direct answers as i dont understand the code that people put on there but it massively helped spark new things which in turn helped me solve problems
+* Stackoverflow - actually found that stackoverflow hasnt given me any direct answers as I dont understand the code that people put on there but it massively helped spark new things which in turn helped me solve problems
 
 ___
 
@@ -327,7 +327,7 @@ To deploy the project I followed the below instructions:
 To fork the repository:
 
 1. Log in (or sign up) to Github.
-2. Go to the repository for this project, [Tribute-Page-PP1](https://github.com/Bowlesy666/2thepower).
+2. Go to the repository for this project, [2 The Power](https://github.com/Bowlesy666/2thepower).
 3. Click the Fork button in the top right corner.
 
 #### How to Clone
@@ -335,7 +335,7 @@ To fork the repository:
 To clone the repository:
 
 1. Log in (or sign up) to GitHub.
-2. Go to the repository for this project, [Tribute-Page-PP1](https://github.com/Bowlesy666/2thepower).
+2. Go to the repository for this project, [2 The Power](https://github.com/Bowlesy666/2thepower).
 3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
@@ -364,9 +364,13 @@ No errors or warnings are returned when passed through any of the validators
 * The site was built in mobile first style so has been tested primarily for this
 * predominantly tested on Safari as all family have iPhones
 
+![Lighthouse - Mobile testing](assets/images/lighthouse-mobile.png)
+
 ### Desktop Testing
 
 * Site was developed on a HP laptop using chrome, also tested on microsoft Edge towards the end of the coding stages
+
+![Lighthouse - Desktop testing](assets/images/lighthouse-desktop.png)
 
 ___
 
@@ -380,9 +384,9 @@ I have broken so many things during the course of this project! Below is a very 
 
 * event listener onclick, had to include it in functions as new html didnt have it attached(if thats not the case thats how I think of it at the moment)
 * enter key event listeners, had to recall them when new html elements were created
-* enter key event listener issue at the final answer section, after enter the alert would come up to say well done, then you would press enter to close alert, this re submitting final answer but the alert wads for "" input, overcame this by changing "" input to an error message in the div and not alert(). it just vanished like magic! or did it? The error still shows "You havent asked a Question yet!", which is actually 100% true, its hardly noticable and once you choose a new sum it disappears, so its now a feature not a bug
-* this. was working ok until I added more to a function and it suddenly stopped, found as I was removing elements I removed this. i overcame that by utilising this. before removing the lement in the function
-* found another bug with this. so just removed it and found by Id
+* enter key event listener issue at the final answer section, after submitting answer with enter the alert would come up to say well done, then you would press enter to close alert, this was then re submitting final answer but the alert was for "" input, overcame this by changing "" input to an error message in the div and not alert(). it just vanished like magic! or did it? The error still shows "You havent asked a Question yet!", which is actually 100% true, its hardly noticable and once you choose a new sum the error message disappears, so its now a feature not a bug
+* this. was working ok until I added more to a function and it suddenly stopped, found that as I was removing elements I removed this. I overcame the issue by utilising this. before removing the element in the function
+* found another bug with this. so just removed it altogether and found by Id, in future I knwo what to take in to consideration before using this. and i gained confidence in how it works so although its no longer in the final project it was worth implementing it
 
 Again thats a very small selection of things I messed up and fixed, sorry i mean bugs found in the code. Ultimately its going to be down to lack of experience and me finding my feet with JS. its been fun though!
 
@@ -404,7 +408,7 @@ Focus() does not always work, the cursor goes into the correct input boxes but s
 | Feature | Type of Test | Expected Outcome | Result | Pass/Fail |
 | ------- | ------------ | ---------------- | ------ | --------- |
 | welcome timer | reload window and test timer length and if function called after | 2 to 3 seconds timer and green arrows appear on screen | as expected | Pass |
-| green arrows and focus in inputs | run through with blank, invalid, correct and incorrect input at each stage | green arrows in correct place and cursor in correct input box at each stage | green arrows good cursor in inputs at correct times, screen does not always follow unless you type then screen moves | Pass |
+| green arrows and focus in inputs | run through with blank, invalid, correct and incorrect input at each stage | green arrows in correct place and cursor in correct input box at each stage | green arrows good cursor in inputs at correct times | Pass |
 | error messages | invalid or blank inputs | error messages displayed | as expected | Pass |
 | Js populates html according to input and event | run through with blank, invalid, correct and incorrect input at each stage | each element filled out correctly and working as expected | as expected | Pass |
 | Answer history log | complete several tests with right and wrong answers | logs question, final input and gives icon for correct or incorrect | as expected | Pass |
@@ -421,12 +425,13 @@ How cool is this! saved me a tonne of time creating the logo and is free to use 
 
 ### Flexbox
 
-Flexbox I had learned form Freecodecamp a long time ago
+Flexbox I had learned form Freecodecamp a long time ago and utilised in the previous project, infact lighthouse is helping flex box click a little more as you can see the different properties that can be used whilst implementing it
 
 ### Other Credits
 
 * Favicon-generator.org used to create the favicons
-* Mockup app on my iPhone, i dont think its half as good as balsamiq but it allowed me to create the wireframes whilst on holiday so was worth a shot
+* Mockup app on my iPhone, I dont think its half as good as balsamiq but it allowed me to create the wireframes whilst on holiday so was worth a shot, wont be using it again though
+* Taken "on keypress enter" from love maths code along
 
 ### Rubber Duck
 
