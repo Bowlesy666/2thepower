@@ -48,7 +48,6 @@ h1 {
 }
 
 /* Add flex box to main element and max width */
-
 main {
     max-width: 900px;
     display: flex;
@@ -121,6 +120,7 @@ button {
     margin: 0 5px;
     border-radius: 30px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 button:hover {
@@ -133,6 +133,7 @@ button:hover {
 
 input {
     border-radius: 15px;
+    cursor: pointer;
 }
 
 /* The below is the styling for the working section arrows */
@@ -238,14 +239,13 @@ input {
     visibility: visible;
 }
 
-/* this is for the positioning for the iteration panels arrow that shows the user to scroll to the right */
+/* this is for the positioning for the iteration panels arrow that directs the user to scroll to the right */
 #iteration-arrow-position {
     top: 168px;
     left: -63px;
 }
 
 /* this is for final answer input box */
-
 #final-answer-input {
     padding: 10px;
     margin: 10px auto;
@@ -289,7 +289,7 @@ input {
     color: yellow;
 }
 
-/* answers go in right to left as this is how sums are calculated */
+/* answers aligned to the right to mirror the label above */
 #workings-out-input {
     width: 240px;
     height: 35px;
@@ -369,7 +369,6 @@ footer {
 
 /* below is the syles for 404 page */
 #oops-page-main {
-    /* max-width: 600px; */
     margin: 0 auto;
     padding: 0 10px;
     flex-direction: column;

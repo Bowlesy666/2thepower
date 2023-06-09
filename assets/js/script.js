@@ -4,7 +4,7 @@ let globalLittle;
 let globalIterationCount = 2;
 
 /**
- * This welcome timer allows users to see the title, read the title and header Descrition
+ * This welcome timer allows users to see the title logo, read the title and header Descrition
  */
 function welcomeTimer() {
     setTimeout(welcomeAlert, 2000);
@@ -13,7 +13,7 @@ function welcomeTimer() {
 /**
  * This function runs after the welcomeTimer completes
  * this is the first part of the step by step guide how to use the website
- * adds green arrows to direct user to the question panel
+ * adds green arrows and focus() to direct user to the question panel
  */
 function welcomeAlert() {
     alert(`Welcome to 2 The Power
@@ -45,7 +45,7 @@ function questionChosen() {
     globalBig = chosenBigNumber;
     globalLittle = chosenLittleNumber;
 
-    // the initial if statements check to see if either of the question input fields are blank or outside of recommended range
+    // the initial if statements check to see if either of the question input fields are blank, invalid or outside of recommended range
     if (chosenBigNumber == "" || chosenLittleNumber == "") {
         document.getElementById('error-message').innerHTML = "Hey, you need to fill in the boxes!<br>";
 
@@ -151,7 +151,6 @@ function fillWorkingsOutPanel(chosenBigNumber, chosenLittleNumber) {
 
             scrollingContainer.appendChild(iterationPanel);
     }
-
     // focus on the first workings out panel to guide the user what is next to complete
     let workingsOutFocus = document.getElementById("workings-out-input");
     workingsOutFocus.focus();
@@ -227,7 +226,6 @@ function calculateIteration() {
                 console.log('Incorrect answer given');
             }
         }
-
         elementsCreateOrRemove(workingsOutInput, workingsOutSubmit, answerError, globalIterationBeforeRunning, iterationPow);
     }
 }
@@ -270,8 +268,6 @@ function elementsCreateOrRemove(workingsOutInput, workingsOutSubmit, answerError
         nextDiv.childNodes[3].innerHTML = `<i class="fa-regular fa-circle-right arrow text-shadow" id="iteration-arrow-position"></i>`;
         nextDiv.childNodes[12].innerHTML = "Now multiply " + iterationPow;
 
-        // adds the green arrow to invite user to scroll along with calculation
-
         newInput.focus(newInput);
 
         //  this event listener is for the following iterations buttons
@@ -299,7 +295,7 @@ function finalAnswerSubmit() {
     let finalAnswerCalculation = Math.pow(globalBig, globalLittle);
 
     if (globalBig == null) {
-        // alert("You havent asked a question yet! Make sure you fill out the 'Choose your Question' section and click the 'Complete this sum' button!");
+        // changed this alert() to error message to by-pass bug found after answer submitted and you tried to close the answer submitted alert() it would also call this as input became null
         document.getElementById("final-answer-error-message").innerHTML = "You havent asked a question yet!";
 
     } else if (finalAnswerInput === "") {
